@@ -1,0 +1,116 @@
+.wrapper {
+	background: #181818;
+	color: #fff;
+	padding: 2rem;
+	font-family: sans-serif;
+
+	h2 {
+		font-size: 37px;
+		margin-bottom: 16px;
+		cursor: default;
+		padding-left: 10px;
+
+		span {
+			color: #ee10b0;
+		}
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 12px 12px 465px;
+	font-size: 22px;
+}
+
+.TrendingSongs {
+	display: flex;
+	align-items: center;
+	cursor: default;
+
+	.songsNumber {
+		width: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 600px;
+
+		.number {
+			font-weight: 600px;
+			font-size: 20px;
+		}
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		background: #1e1e1e;
+		border-radius: 6px;
+		padding: 12px;
+		margin-bottom: 8px;
+		gap: 12px;
+		flex: 1;
+		cursor: pointer;
+	}
+	.coverBlock {
+		display: flex;
+		align-items: center;
+		flex: 1;
+
+		img {
+			width: 48px;
+			height: 48px;
+			border-radius: 4px;
+			object-fit: cover;
+			margin-right: 12px;
+		}
+
+		.text {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.title {
+			font-weight: bold;
+		}
+
+		.artist {
+			font-size: 12px;
+		}
+	}
+
+	.date {
+		width: 120px;
+	}
+
+	.album {
+		flex: 1.2;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: center;
+	}
+
+	.time {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		justify-content: flex-end;
+		margin-right: 10px;
+
+		svg {
+			stroke: #ee10b0;
+		}
+	}
+}
+.viewAll {
+	margin-top: 16px;
+	margin-left: 50%;
+	background: #1e1e1e;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 6px;
+	font-size: 14px;
+	cursor: pointer;
+}

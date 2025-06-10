@@ -1,0 +1,221 @@
+.LandingWidget {
+	background-color: #181818;
+	color: #fff;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	padding: 48px 25px 10px;
+
+	.landing {
+		background-image: url('../../../public/landingPage.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		padding: 15px 40px 120px;
+		border-radius: 20px;
+
+		.header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 50px;
+
+			.searchBar {
+				display: flex;
+				align-items: center;
+				background-color: #333;
+				border-radius: 10px;
+				padding: 8px 15px;
+				width: 300px;
+				margin-right: 10px;
+
+				.searchIcon {
+					margin-right: 10px;
+					font-size: 18px;
+				}
+
+				input {
+					background: none;
+					border: none;
+					color: #fff;
+					outline: none;
+					font-size: 14px;
+					width: 100%;
+					&::placeholder {
+						color: #888;
+					}
+				}
+			}
+
+			.navMenu {
+				display: flex;
+
+				a {
+					color: #fff;
+					text-decoration: none;
+					font-size: 18px;
+					padding: 12px 19px;
+					margin: 8px;
+
+					&.active {
+						color: #ee10b0;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+
+		.button {
+			display: flex;
+			right: 0;
+			.loginBtn {
+				padding: 12px 75px;
+				background-color: transparent;
+				border: 1px solid #ee10b0;
+				border-radius: 5px;
+				color: #ee10b0;
+				font-size: 16px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+				margin-right: 12px;
+
+				&:hover {
+					background-color: #ee10b0;
+					color: #fff;
+				}
+			}
+
+			.signupBtn {
+				padding: 12px 72px;
+				background-color: transparent;
+				border: 1px solid #ee10b0;
+				border-radius: 5px;
+				color: #ee10b0;
+				font-size: 16px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+
+				&:hover {
+					background-color: #ee10b0;
+					color: #fff;
+				}
+			}
+		}
+
+		.mainContent {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-grow: 1;
+
+			.textSection {
+				max-width: 40%;
+				margin-top: 30px;
+
+				h1 {
+					font-size: 47px;
+					line-height: 1.6;
+					margin-bottom: 20px;
+
+					.highlight {
+						color: #ee10b0;
+					}
+				}
+
+				p {
+					font-size: 16px;
+					line-height: 1.7;
+					margin-bottom: 30px;
+					color: #ccc;
+					padding-right: 10px;
+					text-align: justify;
+				}
+
+				.buttons {
+					display: flex;
+
+					.discoverBtn {
+						background-color: transparent;
+						border: 1px solid #ee10b0;
+						padding: 12px 55px;
+						border-radius: 5px;
+						color: #ee10b0;
+						font-size: 16px;
+						cursor: pointer;
+						transition: background-color 0.3s;
+						margin-right: 12px;
+
+						&:hover {
+							background-color: #ee10b0;
+							color: #fff;
+						}
+					}
+
+					.playlistBtn {
+						background-color: transparent;
+						border: 1px solid #0e9eef;
+						padding: 12px 55px;
+						border-radius: 5px;
+						color: #0e9eef;
+						font-size: 16px;
+						cursor: pointer;
+						transition: background-color 0.3s;
+
+						&:hover {
+							background-color: #0e9eef;
+							color: #fff;
+						}
+					}
+				}
+			}
+
+			.imageSection {
+				max-width: 45%;
+				height: 400px;
+
+				.placeholderImage {
+					width: 100%;
+					height: 100%;
+					background: url('path-to-your-image.jpg') no-repeat center/cover;
+					border-radius: 20px;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.landingPage {
+			.mainContent {
+				flex-direction: column;
+				text-align: center;
+
+				.textSection {
+					max-width: 100%;
+					margin-bottom: 30px;
+
+					h1 {
+						font-size: 36px;
+					}
+				}
+
+				.imageSection {
+					max-width: 100%;
+					height: 300px;
+				}
+			}
+
+			.header {
+				flex-direction: column;
+				gap: 20px;
+
+				.searchBar {
+					width: 100%;
+				}
+
+				.navMenu {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+			}
+		}
+	}
+}

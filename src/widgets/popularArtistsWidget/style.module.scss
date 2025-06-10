@@ -1,0 +1,107 @@
+$bg: #181818;
+$card-bg: #1f1f1f;
+$white: #ffffff;
+$text-muted: #aaaaaa;
+$pink: #ee10b0;
+
+.section {
+	background-color: $bg;
+	padding: 2rem;
+
+	h2 {
+		font-size: 37px;
+		font-weight: bold;
+		margin-bottom: 1.2rem;
+		cursor: default;
+		padding-left: 10px;
+	}
+
+	.white {
+		color: $white;
+	}
+
+	.pink {
+		color: $pink;
+	}
+
+	.videoGrid {
+		display: flex;
+		gap: 46px;
+		flex-wrap: nowrap;
+
+		.card {
+			background-color: $card-bg;
+			width: 320px;
+			border-radius: 8px;
+			overflow: hidden;
+			// box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+			flex-shrink: 0;
+			transition: transform 0.2s;
+			&:hover {
+				transform: scale(1.02);
+			}
+
+			.thumbnail {
+				width: 100%;
+				height: 190px;
+				object-fit: cover;
+				display: block;
+			}
+
+			.info {
+				padding: 0.7rem;
+
+				.title {
+					color: $white;
+					font-weight: 600;
+					font-size: 20px;
+					margin-bottom: 0.4rem;
+				}
+
+				.meta {
+					display: flex;
+					justify-content: space-between;
+					color: $text-muted;
+					font-size: 0.85rem;
+				}
+			}
+		}
+		.viewAll {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background: transparent;
+			color: #fff;
+			cursor: pointer;
+
+			// min-width: 80px;
+
+			.viewButton {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				background: #1e1e1e;
+				border: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: transform 0.3s;
+
+				svg {
+					color: #fff;
+				}
+
+				&:hover {
+					background: #ee10b0;
+				}
+			}
+
+			.viewText {
+				margin-top: 0.5rem;
+				font-size: 0.85rem;
+			}
+		}
+	}
+}

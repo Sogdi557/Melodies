@@ -1,0 +1,213 @@
+.wrapper {
+  background: #181818;
+  color: #fff;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+.wrapper h2 {
+  font-size: 37px;
+  margin-bottom: 16px;
+  cursor: default;
+  padding-left: 10px;
+}
+.wrapper h2 span {
+  color: #ee10b0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px 12px 465px;
+  font-size: 22px;
+}
+
+.TrendingSongs {
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+.TrendingSongs .songsNumber {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600px;
+}
+.TrendingSongs .songsNumber .number {
+  font-weight: 600px;
+  font-size: 20px;
+}
+.TrendingSongs .row {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  gap: 12px;
+  flex: 1;
+  cursor: pointer;
+}
+.TrendingSongs .coverBlock {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.TrendingSongs .coverBlock img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 12px;
+}
+.TrendingSongs .coverBlock .text {
+  display: flex;
+  flex-direction: column;
+}
+.TrendingSongs .coverBlock .title {
+  font-weight: bold;
+}
+.TrendingSongs .coverBlock .artist {
+  font-size: 12px;
+}
+.TrendingSongs .date {
+  width: 120px;
+}
+.TrendingSongs .album {
+  flex: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.TrendingSongs .time {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+.TrendingSongs .time svg {
+  stroke: #ee10b0;
+}
+
+.viewAll {
+  margin-top: 16px;
+  margin-left: 50%;
+  background: #1e1e1e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}/*# sourceMappingURL=style.module.css.map */ngsList .viewAll .viewButton svg {
+  color: #fff;
+}
+.weeklyTopSongs .songsList .viewAll .viewButton:hover {
+  background: #ee10b0;
+}
+.weeklyTopSongs .songsList .viewAll .viewText {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}/*# sourceMappingURL=style.module.css.map */p: 1.2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.Footer .right .icons svg {
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+.Footer .right .icons svg:hover {
+  transform: scale(1.2);
+  color: #ee10b0;
+}/*# sourceMappingURL=style.module.css.map */ 40%;
+  margin-top: 30px;
+}
+.LandingWidget .landing .mainContent .textSection h1 {
+  font-size: 47px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.LandingWidget .landing .mainContent .textSection h1 .highlight {
+  color: #ee10b0;
+}
+.LandingWidget .landing .mainContent .textSection p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: #ccc;
+  padding-right: 10px;
+  text-align: justify;
+}
+.LandingWidget .landing .mainContent .textSection .buttons {
+  display: flex;
+}
+.LandingWidget .landing .mainContent .textSection .buttons .discoverBtn {
+  background-color: transparent;
+  border: 1px solid #ee10b0;
+  padding: 12px 55px;
+  border-radius: 5px;
+  color: #ee10b0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 12px;
+}
+.LandingWidget .landing .mainContent .textSection .buttons .discoverBtn:hover {
+  background-color: #ee10b0;
+  color: #fff;
+}
+.LandingWidget .landing .mainContent .textSection .buttons .playlistBtn {
+  background-color: transparent;
+  border: 1px solid #0e9eef;
+  padding: 12px 55px;
+  border-radius: 5px;
+  color: #0e9eef;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.LandingWidget .landing .mainContent .textSection .buttons .playlistBtn:hover {
+  background-color: #0e9eef;
+  color: #fff;
+}
+.LandingWidget .landing .mainContent .imageSection {
+  max-width: 45%;
+  height: 400px;
+}
+.LandingWidget .landing .mainContent .imageSection .placeholderImage {
+  width: 100%;
+  height: 100%;
+  background: url("path-to-your-image.jpg") no-repeat center/cover;
+  border-radius: 20px;
+}
+@media (max-width: 768px) {
+  .LandingWidget .landingPage .mainContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  .LandingWidget .landingPage .mainContent .textSection {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  .LandingWidget .landingPage .mainContent .textSection h1 {
+    font-size: 36px;
+  }
+  .LandingWidget .landingPage .mainContent .imageSection {
+    max-width: 100%;
+    height: 300px;
+  }
+  .LandingWidget .landingPage .header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .LandingWidget .landingPage .header .searchBar {
+    width: 100%;
+  }
+  .LandingWidget .landingPage .header .navMenu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}/*# sourceMappingURL=style.module.css.map */

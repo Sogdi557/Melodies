@@ -1,0 +1,149 @@
+.Footer {
+	background: #181818;
+	padding: 2rem 2rem;
+	color: #fff;
+
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: space-between;
+	}
+
+	.about {
+		flex: 1 1 300px;
+
+		h2 {
+			font-size: 1.5rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+		}
+
+		p {
+			font-size: 0.95rem;
+			line-height: 1.6;
+			color: #fff;
+			text-align: justify;
+		}
+
+		.highlight {
+			color: #ee10b0;
+		}
+
+		.link {
+			color: #00aaff;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.links {
+		display: flex;
+		gap: 2rem;
+		flex: 2 1 600px;
+		justify-content: space-around;
+
+		div {
+			display: flex;
+			flex-direction: column;
+
+			h3 {
+				font-size: 1.2rem;
+				font-weight: bold;
+				position: relative;
+				padding-bottom: 0.3rem;
+				margin-bottom: 1rem;
+				width: fit-content;
+
+				&::after {
+					content: '';
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					width: 0;
+					height: 2px;
+					background: #fff;
+					transition: width 0.3s ease;
+				}
+
+				&:hover::after {
+					width: 100%;
+				}
+			}
+
+			a {
+				color: #fff;
+				text-decoration: none;
+				margin: 0.3rem 0;
+				font-size: 0.95rem;
+				text-align: center;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.right {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+
+		h1 {
+			font-size: 2rem;
+			font-weight: 800;
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+
+		@keyframes gradientMove {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		.logo {
+			font-family: 'Roboto', sans-serif;
+			font-size: 40px;
+			background: linear-gradient(
+				90.07deg,
+				#ee10b0 -4.82%,
+				rgba(14, 158, 239, 0.92) 127.01%
+			);
+			background-size: 200% 200%;
+			animation: gradientMove 4s ease-in-out infinite;
+
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		.icons {
+			display: flex;
+			gap: 1.2rem;
+			font-size: 1.3rem;
+			cursor: pointer;
+
+			svg {
+				transition: transform 0.3s ease;
+				color: #fff;
+
+				&:hover {
+					transform: scale(1.2);
+					color: #ee10b0;
+				}
+			}
+		}
+	}
+}
