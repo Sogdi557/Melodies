@@ -7,13 +7,13 @@ import ContactUs from '../pages/contactUs/ContactUs'
 import CatalogPage from '../pages/catalogPage/CatalogPage'
 import NotFoundPage from '../pages/notFoundPage/NotFoundPage'
 import Home from '../pages/home/Home'
-import HeaderWidget from '../widgets/headerWidget/HeaderWidget'
 import Discover from '../pages/discover/Discover'
+import AppHeaderWidget from '../widgets/appHeaderWidget/AppHeaderWidget'
 
 function App() {
 	return (
 		<div className='qwe'>
-			<HeaderWidget />
+			<AppHeaderWidget />
 
 			<Routes>
 				<Route path='/' element={<Home />} />
