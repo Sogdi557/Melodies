@@ -17,8 +17,8 @@ export default function Home() {
 			<WeeklyTopSongsWidget />
 			<NewReleaseSongs />
 			<TrendingSongsWidget />
-			<MusicVideoWidget />
 			<PopularArtistsWidget />
+			<MusicVideoWidget />
 			<TopAlbums />
 			<MoodPlaylist />
 			{/* <SignUpForm /> */}

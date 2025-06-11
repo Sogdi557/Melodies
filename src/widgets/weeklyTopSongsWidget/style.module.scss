@@ -22,14 +22,16 @@
 	.songsList {
 		display: flex;
 		gap: 18px;
-		// overflow-x: auto;
-		// padding-bottom: 0.5rem;
+		max-width: visibleCount 1600px;
+		overflow-x: auto;
+		white-space: nowrap;
 
 		&::-webkit-scrollbar {
 			display: none;
 		}
 
 		.songCard {
+			display: inline-block;
 			background: #1e1e1e;
 			border-radius: 10px;
 			padding: 5px 16px 10px;

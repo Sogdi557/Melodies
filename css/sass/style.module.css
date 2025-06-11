@@ -1,108 +1,96 @@
-.wrapper {
+.weeklyTopSongs {
+  padding: 2rem;
   background: #181818;
   color: #fff;
-  padding: 2rem;
-  font-family: sans-serif;
 }
-.wrapper h2 {
+.weeklyTopSongs .header {
+  margin-bottom: 1.5rem;
+}
+.weeklyTopSongs .header h2 {
   font-size: 37px;
-  margin-bottom: 16px;
+  font-weight: 700;
   cursor: default;
+  margin-bottom: 40px;
   padding-left: 10px;
 }
-.wrapper h2 span {
+.weeklyTopSongs .header h2 .highlight {
   color: #ee10b0;
 }
-
-.header {
+.weeklyTopSongs .songsList {
   display: flex;
-  justify-content: space-between;
-  padding: 0 12px 12px 465px;
-  font-size: 22px;
+  gap: 18px;
+  max-width: visibleCount 1600px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
-
-.TrendingSongs {
-  display: flex;
-  align-items: center;
-  cursor: default;
+.weeklyTopSongs .songsList::-webkit-scrollbar {
+  display: none;
 }
-.TrendingSongs .songsNumber {
-  width: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600px;
-}
-.TrendingSongs .songsNumber .number {
-  font-weight: 600px;
-  font-size: 20px;
-}
-.TrendingSongs .row {
-  display: flex;
-  align-items: center;
+.weeklyTopSongs .songsList .songCard {
+  display: inline-block;
   background: #1e1e1e;
-  border-radius: 6px;
-  padding: 12px;
-  margin-bottom: 8px;
-  gap: 12px;
-  flex: 1;
-  cursor: pointer;
-}
-.TrendingSongs .coverBlock {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-.TrendingSongs .coverBlock img {
-  width: 48px;
-  height: 48px;
-  border-radius: 4px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin-right: 12px;
-}
-.TrendingSongs .coverBlock .text {
+  border-radius: 10px;
+  padding: 5px 16px 10px;
+  min-width: 165px;
+  width: 165px;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
-.TrendingSongs .coverBlock .title {
-  font-weight: bold;
+.weeklyTopSongs .songsList .songCard:hover {
+  transform: scale(1.05);
 }
-.TrendingSongs .coverBlock .artist {
-  font-size: 12px;
+.weeklyTopSongs .songsList .songCard .cover {
+  width: 100%;
+  height: 175px;
+  border-radius: 6px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.TrendingSongs .date {
-  width: 120px;
-}
-.TrendingSongs .album {
-  flex: 1.2;
+.weeklyTopSongs .songsList .songCard .songInfo .title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 3px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: center;
+  cursor: pointer;
 }
-.TrendingSongs .time {
+.weeklyTopSongs .songsList .songCard .songInfo .artist {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin: 10px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.weeklyTopSongs .songsList .viewAll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.weeklyTopSongs .songsList .viewAll .viewButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #1e1e1e;
+  border: none;
   display: flex;
   align-items: center;
-  gap: 12px;
-  justify-content: flex-end;
-  margin-right: 10px;
-}
-.TrendingSongs .time svg {
-  stroke: #ee10b0;
-}
-
-.viewAll {
-  margin-top: 16px;
-  margin-left: 50%;
-  background: #1e1e1e;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 14px;
+  justify-content: center;
   cursor: pointer;
-}/*# sourceMappingURL=style.module.css.map */ngsList .viewAll .viewButton svg {
+  transition: transform 0.3s;
+}
+.weeklyTopSongs .songsList .viewAll .viewButton svg {
   color: #fff;
 }
 .weeklyTopSongs .songsList .viewAll .viewButton:hover {
@@ -111,103 +99,4 @@
 .weeklyTopSongs .songsList .viewAll .viewText {
   margin-top: 0.5rem;
   font-size: 0.85rem;
-}/*# sourceMappingURL=style.module.css.map */p: 1.2rem;
-  font-size: 1.3rem;
-  cursor: pointer;
-}
-.Footer .right .icons svg {
-  transition: transform 0.3s ease;
-  color: #fff;
-}
-.Footer .right .icons svg:hover {
-  transform: scale(1.2);
-  color: #ee10b0;
-}/*# sourceMappingURL=style.module.css.map */ 40%;
-  margin-top: 30px;
-}
-.LandingWidget .landing .mainContent .textSection h1 {
-  font-size: 47px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-.LandingWidget .landing .mainContent .textSection h1 .highlight {
-  color: #ee10b0;
-}
-.LandingWidget .landing .mainContent .textSection p {
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 30px;
-  color: #ccc;
-  padding-right: 10px;
-  text-align: justify;
-}
-.LandingWidget .landing .mainContent .textSection .buttons {
-  display: flex;
-}
-.LandingWidget .landing .mainContent .textSection .buttons .discoverBtn {
-  background-color: transparent;
-  border: 1px solid #ee10b0;
-  padding: 12px 55px;
-  border-radius: 5px;
-  color: #ee10b0;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-right: 12px;
-}
-.LandingWidget .landing .mainContent .textSection .buttons .discoverBtn:hover {
-  background-color: #ee10b0;
-  color: #fff;
-}
-.LandingWidget .landing .mainContent .textSection .buttons .playlistBtn {
-  background-color: transparent;
-  border: 1px solid #0e9eef;
-  padding: 12px 55px;
-  border-radius: 5px;
-  color: #0e9eef;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.LandingWidget .landing .mainContent .textSection .buttons .playlistBtn:hover {
-  background-color: #0e9eef;
-  color: #fff;
-}
-.LandingWidget .landing .mainContent .imageSection {
-  max-width: 45%;
-  height: 400px;
-}
-.LandingWidget .landing .mainContent .imageSection .placeholderImage {
-  width: 100%;
-  height: 100%;
-  background: url("path-to-your-image.jpg") no-repeat center/cover;
-  border-radius: 20px;
-}
-@media (max-width: 768px) {
-  .LandingWidget .landingPage .mainContent {
-    flex-direction: column;
-    text-align: center;
-  }
-  .LandingWidget .landingPage .mainContent .textSection {
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-  .LandingWidget .landingPage .mainContent .textSection h1 {
-    font-size: 36px;
-  }
-  .LandingWidget .landingPage .mainContent .imageSection {
-    max-width: 100%;
-    height: 300px;
-  }
-  .LandingWidget .landingPage .header {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .LandingWidget .landingPage .header .searchBar {
-    width: 100%;
-  }
-  .LandingWidget .landingPage .header .navMenu {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 }/*# sourceMappingURL=style.module.css.map */
