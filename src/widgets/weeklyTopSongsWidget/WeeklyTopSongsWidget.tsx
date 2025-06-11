@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
-import { Plus } from 'lucide-react'
-import { fetchSpotifyData } from '../../pages/cart/Cart'
+import { Plus, ChevronLeft } from 'lucide-react'
+import fetchSpotifyData from '../../pages/cart/Cart'
 
 interface Song {
 	id: string
@@ -12,18 +12,31 @@ interface Song {
 
 export default function NewReleaseSongs() {
 	const [songs, setSongs] = useState<Song[]>([])
-	const [visibleCount, setVisibleCount] = useState(5)
+	const [visibleCount, setVisibleCount] = useState(10)
 
 	useEffect(() => {
 		const loadSongs = async () => {
-			const fetched = await fetchSpotifyData('new')
-			setSongs(fetched)
+			try {
+				const fetched = await fetchSpotifyData('new', undefined)
+				if (Array.isArray(fetched)) {
+					setSongs(fetched)
+				} else {
+					console.warn('Неверный формат данных:', fetched)
+					setSongs([])
+				}
+			} catch (error) {
+				console.error('Ошибка загрузки песен:', error)
+			}
 		}
 		loadSongs()
 	}, [])
 
 	const handleViewAll = () => {
 		setVisibleCount(prev => Math.min(prev + 1, songs.length))
+	}
+
+	const handleBack = () => {
+		setVisibleCount(prev => Math.max(prev - 1))
 	}
 
 	return (
@@ -34,9 +47,16 @@ export default function NewReleaseSongs() {
 				</h2>
 			</div>
 			<div className={styles.songsList}>
-				{songs.slice(0, visibleCount).map((song, index) => (
+				{songs.slice(0, visibleCount).map(song => (
 					<div key={song.id} className={styles.songCard}>
-						<img src={song.image} alt={song.title} className={styles.cover} />
+						<img
+							src={song.image}
+							alt={song.title}
+							className={styles.cover}
+							onError={e => {
+								;(e.target as HTMLImageElement).src = '/placeholder.jpg'
+							}}
+						/>
 						<div className={styles.songInfo}>
 							<h4 className={styles.title}>{song.title}</h4>
 							<p className={styles.artist}>{song.subtitle}</p>
@@ -44,14 +64,16 @@ export default function NewReleaseSongs() {
 					</div>
 				))}
 
-				{visibleCount < songs.length && (
-					<div className={styles.viewAll}>
-						<button className={styles.viewButton} onClick={handleViewAll}>
-							<Plus />
-						</button>
-						<span className={styles.viewText}>View All</span>
-					</div>
-				)}
+				<div className={styles.viewAll}>
+					{visibleCount < songs.length && (
+						<>
+							<button className={styles.viewButton} onClick={handleViewAll}>
+								<Plus />
+							</button>
+							<span className={styles.viewText}>View All</span>
+						</>
+					)}
+				</div>
 			</div>
 		</section>
 	)

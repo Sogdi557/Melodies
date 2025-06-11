@@ -47,7 +47,7 @@ const MusicVideoSection = () => {
 
 		try {
 			const response = await axios.get(
-				'https://api.spotify.com/v1/browse/new-releases?limit=20',
+				'https://api.spotify.com/v1/browse/new-releases?limit=50',
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -55,7 +55,12 @@ const MusicVideoSection = () => {
 				}
 			)
 
-			const tracks: Track[] = response.data.albums.items.map((item: any) => ({
+			const allItems = response.data.albums.items
+
+			const filtered = allItems.filter((item: any) =>
+				item.name.toLowerCase().includes('video')
+			)
+			const tracks: Track[] = allItems.map((item: any) => ({
 				title: item.name,
 				artist: item.artists.map((a: any) => a.name).join(', '),
 				imageUrl: item.images[0]?.url || '',
@@ -77,13 +82,11 @@ const MusicVideoSection = () => {
 		const isDuplicate = visibleVideos.some(
 			v => v.title === next.title && v.artist === next.artist
 		)
+
 		if (!isDuplicate) {
 			setVisibleVideos(prev => [...prev.slice(1), next])
-			setCurrentIndex(currentIndex + 1)
-		} else {
-			setCurrentIndex(currentIndex + 1)
-			handleViewAll()
 		}
+		setCurrentIndex(prev => prev + 1)
 	}
 
 	useEffect(() => {
@@ -113,12 +116,14 @@ const MusicVideoSection = () => {
 						</div>
 					</div>
 				))}
-				<div className={styles.viewAll}>
-					<button className={styles.viewButton} onClick={handleViewAll}>
-						<Plus />
-					</button>
-					<span className={styles.viewText}>View All</span>
-				</div>
+				{currentIndex < allVideos.length && (
+					<div className={styles.viewAll}>
+						<button className={styles.viewButton} onClick={handleViewAll}>
+							<Plus />
+						</button>
+						<span className={styles.viewText}>View All</span>
+					</div>
+				)}
 			</div>
 		</section>
 	)

@@ -9,6 +9,7 @@ import NotFoundPage from '../pages/notFoundPage/NotFoundPage'
 import Home from '../pages/home/Home'
 import Discover from '../pages/discover/Discover'
 import AppHeaderWidget from '../widgets/appHeaderWidget/AppHeaderWidget'
+import Albums from '../pages/albums/Albums'
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/discover' element={<Discover />} />
+				<Route path='/albums' element={<Albums />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/contactUs' element={<ContactUs />} />
 				{/* <Route path='/blog' element={<Blog />} /> */}

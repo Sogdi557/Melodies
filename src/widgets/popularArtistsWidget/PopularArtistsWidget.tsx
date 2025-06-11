@@ -87,14 +87,6 @@ const PopularArtists = () => {
 				Popular <span>Artists</span>
 			</h2>
 			<div className={styles.artists}>
-				{startIndex > 0 && (
-					<div className={styles.viewAll}>
-						<button className={styles.viewButton} onClick={handlePrev}>
-							<ChevronLeft />
-						</button>
-						<span className={styles.viewText}>Back</span>
-					</div>
-				)}
 				{visibleArtists.map(artist => (
 					<div key={artist.name} className={styles.artist}>
 						<img src={artist.image} alt={artist.name} />

@@ -1,72 +1,41 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import styles from './style.module.scss'
 import { Plus } from 'lucide-react'
+import fetchSpotifyData from '../../pages/cart/Cart'
 
 interface Song {
+	id: string
 	title: string
-	artist: string
+	subtitle: string
 	image: string
+	releaseDate?: string
 }
-
-const clientId = '9db623453ae2426281bd71fac38fbcdf'
-const clientSecret = '187f1cb1c3b34998b17dce975fad783f'
 
 export default function NewReleaseSongs() {
 	const [songs, setSongs] = useState<Song[]>([])
-	const [visibleCount, setVisibleCount] = useState(5)
-
-	const getAccessToken = async () => {
-		const params = new URLSearchParams()
-		params.append('grant_type', 'client_credentials')
-		params.append('client_id', clientId)
-		params.append('client_secret', clientSecret)
-
-		try {
-			const res = await axios.post(
-				'https://accounts.spotify.com/api/token',
-				params,
-				{ headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
-			)
-			return res.data.access_token
-		} catch (err) {
-			console.error('Ошибка получения токена', err)
-			return null
-		}
-	}
-
-	const fetchNewReleases = async () => {
-		const token = await getAccessToken()
-		if (!token) return
-
-		try {
-			const res = await axios.get(
-				'https://api.spotify.com/v1/browse/new-releases?limit=50',
-				{ headers: { Authorization: `Bearer ${token}` } }
-			)
-
-			const seen = new Set()
-			const uniqueSongs = res.data.albums.items
-				.filter(
-					(item: any) => item && item.images.length && !seen.has(item.name)
-				)
-				.map((item: any) => {
-					seen.add(item.name)
-					return {
-						title: item.name,
-						artist: item.artists[0]?.name || 'Unknown',
-						image: item.images[0].url,
-					}
-				})
-			setSongs(uniqueSongs)
-		} catch (err) {
-			console.error('Ошибка получения релизов', err)
-		}
-	}
+	const [visibleCount, setVisibleCount] = useState(10)
 
 	useEffect(() => {
-		fetchNewReleases()
+		const loadSongs = async () => {
+			try {
+				const fetched = await fetchSpotifyData('new', undefined)
+				console.log('fetched:', fetched) // <--- добавьте это!
+				if (Array.isArray(fetched)) {
+					setSongs(fetched)
+				} else {
+					console.warn('Неверный формат данных:', fetched)
+					setSongs([])
+				}
+			} catch (error) {
+				console.error('Ошибка загрузки песен:', error)
+			}
+		}
+		loadSongs()
 	}, [])
+
+	const handleViewAll = () => {
+		setVisibleCount(prev => Math.min(prev + 1, songs.length))
+	}
 
 	return (
 		<section className={styles.weeklyTopSongs}>
@@ -76,22 +45,26 @@ export default function NewReleaseSongs() {
 				</h2>
 			</div>
 			<div className={styles.songsList}>
-				{songs.slice(0, visibleCount).map((song, index) => (
-					<div key={index} className={styles.songCard}>
-						<img src={song.image} alt={song.title} className={styles.cover} />
+				{songs.slice(0, visibleCount).map(song => (
+					<div key={song.id} className={styles.songCard}>
+						<img
+							src={song.image}
+							alt={song.title}
+							className={styles.cover}
+							onError={e => {
+								;(e.target as HTMLImageElement).src = '/placeholder.jpg'
+							}}
+						/>
 						<div className={styles.songInfo}>
 							<h4 className={styles.title}>{song.title}</h4>
-							<p className={styles.artist}>{song.artist}</p>
+							<p className={styles.artist}>{song.subtitle}</p>
 						</div>
 					</div>
 				))}
 
 				{visibleCount < songs.length && (
 					<div className={styles.viewAll}>
-						<button
-							className={styles.viewButton}
-							onClick={() => setVisibleCount(prev => prev + 1)}
-						>
+						<button className={styles.viewButton} onClick={handleViewAll}>
 							<Plus />
 						</button>
 						<span className={styles.viewText}>View All</span>

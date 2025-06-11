@@ -5,13 +5,13 @@ $text-muted: #aaaaaa;
 $pink: #ee10b0;
 
 .section {
-	background-color: $bg;
-	padding: 2rem;
+	padding: 32px;
+	position: relative;
 
 	h2 {
 		font-size: 37px;
 		font-weight: bold;
-		margin-bottom: 1.2rem;
+		margin-bottom: 19px;
 		cursor: default;
 		padding-left: 10px;
 	}
@@ -28,6 +28,12 @@ $pink: #ee10b0;
 		display: flex;
 		gap: 46px;
 		flex-wrap: nowrap;
+		max-width: 1020px;
+		overflow-x: auto;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 
 		.card {
 			background-color: $card-bg;
@@ -37,8 +43,9 @@ $pink: #ee10b0;
 			// box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 			flex-shrink: 0;
 			transition: transform 0.2s;
+			cursor: pointer;
 			&:hover {
-				transform: scale(1.02);
+				transform: scale(1.05);
 			}
 
 			.thumbnail {
@@ -49,24 +56,28 @@ $pink: #ee10b0;
 			}
 
 			.info {
-				padding: 0.7rem;
+				padding: 11px;
 
 				.title {
 					color: $white;
 					font-weight: 600;
 					font-size: 20px;
-					margin-bottom: 0.4rem;
+					margin-bottom: 6px;
 				}
 
 				.meta {
 					display: flex;
 					justify-content: space-between;
 					color: $text-muted;
-					font-size: 0.85rem;
+					font-size: 14px;
 				}
 			}
 		}
 		.viewAll {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			padding: 16px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -99,8 +110,8 @@ $pink: #ee10b0;
 			}
 
 			.viewText {
-				margin-top: 0.5rem;
-				font-size: 0.85rem;
+				margin-top: 8px;
+				font-size: 14px;
 			}
 		}
 	}

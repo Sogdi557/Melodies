@@ -1,7 +1,7 @@
 .wrapper {
-	background: #181818;
-	color: #fff;
-	padding: 2rem;
+	padding: 32px;
+	overflow-x: hidden;
+	position: relative;
 
 	h2 {
 		font-size: 37px;
@@ -22,16 +22,29 @@
 		display: flex;
 		align-items: center;
 		gap: 27px;
+		max-width: 1020px;
+		white-space: nowrap;
 		overflow-x: auto;
 		width: max-content;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
 	.artist {
+		padding-top: 20px;
+		display: inline-block;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		min-width: 120px;
 		flex-shrink: 0;
+		transition: transform 0.3s ease;
+		cursor: pointer;
+
+		&:hover {
+			transform: scale(1.05);
+		}
 
 		img {
 			width: 155px;
@@ -39,6 +52,10 @@
 			border-radius: 50%;
 			object-fit: cover;
 			margin-bottom: 18px;
+
+			&:hover {
+				transform: scale(1.05);
+			}
 		}
 		p {
 			font-size: 14px;
@@ -47,11 +64,14 @@
 	}
 
 	.viewAll {
+		position: absolute;
+		top: 50%;
+		right: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 1rem;
+		padding: 16px;
 		background: transparent;
 		color: #fff;
 		cursor: pointer;
@@ -80,8 +100,8 @@
 		}
 
 		.viewText {
-			margin-top: 0.5rem;
-			font-size: 0.85rem;
+			margin-top: 8px;
+			font-size: 14px;
 		}
 	}
 }

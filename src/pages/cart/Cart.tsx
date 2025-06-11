@@ -1,3 +1,4 @@
+import React from 'react'
 import axios from 'axios'
 
 const clientId = '9db623453ae2426281bd71fac38fbcdf'
@@ -107,3 +108,24 @@ export const fetchSpotifyData = async (
 		return []
 	}
 }
+
+export const handleNext = (
+	startIndex: number,
+	artistsLength: number,
+	setStartIndex: React.Dispatch<React.SetStateAction<number>>
+) => {
+	if (startIndex + 6 < artistsLength) {
+		setStartIndex(prev => prev + 1)
+	}
+}
+
+export const handlePrev = (
+	startIndex: number,
+	setStartIndex: React.Dispatch<React.SetStateAction<number>>
+) => {
+	if (startIndex > 0) {
+		setStartIndex(prev => prev - 1)
+	}
+}
+
+export default fetchSpotifyData

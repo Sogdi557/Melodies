@@ -1,10 +1,10 @@
 .weeklyTopSongs {
-	padding: 2rem;
-	background: #181818;
-	color: #fff;
+	padding: 32px;
+	overflow-x: hidden;
+	position: relative;
 
 	.header {
-		margin-bottom: 1.5rem;
+		margin-bottom: 24px;
 
 		h2 {
 			font-size: 37px;
@@ -22,14 +22,16 @@
 	.songsList {
 		display: flex;
 		gap: 18px;
-		// overflow-x: auto;
-		// padding-bottom: 0.5rem;
+		max-width: 1020px;
+		overflow-x: auto;
+		white-space: nowrap;
 
 		&::-webkit-scrollbar {
 			display: none;
 		}
 
 		.songCard {
+			display: inline-block;
 			background: #1e1e1e;
 			border-radius: 10px;
 			padding: 5px 16px 10px;
@@ -37,7 +39,7 @@
 			width: 165px;
 			display: flex;
 			flex-direction: column;
-			gap: 0.5rem;
+			gap: 8px;
 			flex-shrink: 0;
 			transition: transform 0.3s ease;
 			cursor: pointer;
@@ -55,7 +57,7 @@
 
 			.songInfo {
 				.title {
-					font-size: 0.95rem;
+					font-size: 15px;
 					font-weight: 600;
 					margin: 3px 0;
 					white-space: nowrap;
@@ -65,7 +67,7 @@
 				}
 
 				.artist {
-					font-size: 0.8rem;
+					font-size: 13px;
 					color: #aaa;
 					margin: 10px 0 0;
 					white-space: nowrap;
@@ -76,11 +78,14 @@
 			}
 		}
 		.viewAll {
+			position: absolute;
+			top: 50%;
+			right: 0;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			padding: 1rem;
+			padding: 16px;
 			background: transparent;
 			color: #fff;
 			cursor: pointer;
@@ -109,8 +114,8 @@
 			}
 
 			.viewText {
-				margin-top: 0.5rem;
-				font-size: 0.85rem;
+				margin-top: 8px;
+				font-size: 14px;
 			}
 		}
 	}
