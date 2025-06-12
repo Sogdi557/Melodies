@@ -9,6 +9,7 @@ interface Song {
 	subtitle: string
 	image: string
 	releaseDate?: string
+	preview_url?: string
 }
 
 export default function NewReleaseSongs() {
@@ -58,6 +59,11 @@ export default function NewReleaseSongs() {
 						<div className={styles.songInfo}>
 							<h4 className={styles.title}>{song.title}</h4>
 							<p className={styles.artist}>{song.subtitle}</p>
+							{song.preview_url && (
+								<audio controls src={song.preview_url} style={{ width: '100%' }}>
+									Ваш браузер не поддерживает аудио.
+								</audio>
+							)}
 						</div>
 					</div>
 				))}

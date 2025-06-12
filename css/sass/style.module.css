@@ -1,104 +1,103 @@
-.weeklyTopSongs {
-  padding: 32px;
-  overflow-x: hidden;
+.wrapper {
+  font-family: sans-serif;
+  padding-left: 30px;
 }
-.weeklyTopSongs .header {
-  margin-bottom: 24px;
-}
-.weeklyTopSongs .header h2 {
+.wrapper h2 {
   font-size: 37px;
-  font-weight: 700;
+  margin-bottom: 16px;
   cursor: default;
-  margin-bottom: 40px;
   padding-left: 10px;
 }
-.weeklyTopSongs .header h2 .highlight {
+.wrapper h2 span {
   color: #ee10b0;
 }
-.weeklyTopSongs .songsList {
+
+.header {
   display: flex;
-  gap: 18px;
-  max-width: 1020px;
-  overflow-x: auto;
-  white-space: nowrap;
+  justify-content: space-between;
+  padding: 0 12px 12px 465px;
+  font-size: 22px;
 }
-.weeklyTopSongs .songsList::-webkit-scrollbar {
-  display: none;
+
+.TrendingSongs {
+  display: flex;
+  align-items: center;
+  cursor: default;
 }
-.weeklyTopSongs .songsList .songCard {
-  display: inline-block;
+.TrendingSongs .songsNumber {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600px;
+}
+.TrendingSongs .songsNumber .number {
+  font-weight: 600px;
+  font-size: 20px;
+}
+.TrendingSongs .row {
+  display: flex;
+  align-items: center;
   background: #1e1e1e;
-  border-radius: 10px;
-  margin: 5px 16px 10px;
-  min-width: 165px;
-  width: 165px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  gap: 12px;
+  flex: 1;
   cursor: pointer;
 }
-.weeklyTopSongs .songsList .songCard:hover {
-  transform: scale(1.05);
+.TrendingSongs .coverBlock {
+  display: flex;
+  align-items: center;
+  flex: 1;
 }
-.weeklyTopSongs .songsList .songCard .cover {
-  width: 100%;
-  height: 175px;
-  border-radius: 6px;
+.TrendingSongs .coverBlock img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
   -o-object-fit: cover;
      object-fit: cover;
+  margin-right: 12px;
 }
-.weeklyTopSongs .songsList .songCard .songInfo .title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin: 3px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-}
-.weeklyTopSongs .songsList .songCard .songInfo .artist {
-  font-size: 13px;
-  color: #aaa;
-  margin: 10px 0 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-}
-.weeklyTopSongs .songsList .viewAll {
-  position: absolute;
-  top: 50%;
-  right: 0;
+.TrendingSongs .coverBlock .text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
 }
-.weeklyTopSongs .songsList .viewAll .viewButton {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #1e1e1e;
-  border: none;
+.TrendingSongs .coverBlock .title {
+  font-weight: bold;
+}
+.TrendingSongs .coverBlock .artist {
+  font-size: 12px;
+}
+.TrendingSongs .date {
+  width: 120px;
+}
+.TrendingSongs .album {
+  flex: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.TrendingSongs .time {
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-right: 10px;
 }
-.weeklyTopSongs .songsList .viewAll .viewButton svg {
+.TrendingSongs .time svg {
+  stroke: #ee10b0;
+}
+
+.viewAll {
+  margin-top: 16px;
+  margin-left: 50%;
+  background: #1e1e1e;
   color: #fff;
-}
-.weeklyTopSongs .songsList .viewAll .viewButton:hover {
-  background: #ee10b0;
-}
-.weeklyTopSongs .songsList .viewAll .viewText {
-  margin-top: 8px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
   font-size: 14px;
+  cursor: pointer;
 }/*# sourceMappingURL=style.module.css.map */

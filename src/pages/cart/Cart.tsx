@@ -83,7 +83,7 @@ export const fetchSpotifyData = async (
 				.map((item: any) => ({
 					id: item.id,
 					title: item.name,
-					subtitle: item.artists[0]?.name,
+					subtitle: item.artists?.map((a: any) => a.name).join(', '),
 					image: item.album.images[0].url,
 				}))
 		}
@@ -97,8 +97,10 @@ export const fetchSpotifyData = async (
 				.map((item: any) => ({
 					id: item.id,
 					title: item.name,
-					subtitle: item.artists[0]?.name,
+					subtitle: item.artists?.map((a: any) => a.name).join(', '),
 					image: item.images[0].url,
+					releaseDate: item.release_date,
+					preview_url: item.preview_url,
 				}))
 		}
 

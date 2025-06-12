@@ -16,7 +16,7 @@ interface Track {
 export default function TrendingSongsWidget() {
 	const [tracks, setTracks] = useState<Track[]>([])
 	const [likedIds, setLikedIds] = useState<string[]>([])
-	const [visibleCount, setVisibleCount] = useState(7)
+	const [visibleCount, setVisibleCount] = useState(20)
 
 	useEffect(() => {
 		const fetchTracks = async () => {
@@ -48,9 +48,9 @@ export default function TrendingSongsWidget() {
 		}
 	}
 
-	const handleViewAll = () => {
-		setVisibleCount(prev => Math.min(prev + 1, tracks.length))
-	}
+	// const handleViewAll = () => {
+	//   setVisibleCount(prev => Math.min(prev + 1, tracks.length))
+	// }
 
 	return (
 		<div className={styles.wrapper}>
@@ -90,11 +90,11 @@ export default function TrendingSongsWidget() {
 					</div>
 				</section>
 			))}
-			{visibleCount < tracks.length && (
-				<button className={styles.viewAll} onClick={handleViewAll}>
-					+ View All
-				</button>
-			)}
+			{/* {visibleCount < tracks.length && (
+        <button className={styles.viewAll} onClick={handleViewAll}>
+          + View All
+        </button>
+      )} */}
 		</div>
 	)
 }
