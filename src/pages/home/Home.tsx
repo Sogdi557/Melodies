@@ -5,7 +5,6 @@ import TrendingSongsWidget from '../../widgets/trendingSongsWidget/TrendingSongs
 import MusicVideoWidget from '../../widgets/musicVideoWidget/MusicVideoWidget'
 import PopularArtistsWidget from '../../widgets/popularArtistsWidget/PopularArtistsWidget'
 import WeeklyTopSongsWidget from '../../widgets/weeklyTopSongsWidget/WeeklyTopSongsWidget'
-// import NewReleaseSongs from '../../widgets/newReleaseSongsWidget/NewReleaseSongs'
 import TopAlbums from '../../widgets/topAlbumsWidget/TopAlbums'
 import MoodPlaylist from '../../widgets/moodPlaylistWidget/MoodPlaylist'
 import NewReleaseSongs from '../../widgets/weeklyTopSongsWidget/WeeklyTopSongsWidget'

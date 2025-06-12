@@ -54,9 +54,6 @@ export default function TrendingSongsWidget() {
 
 	return (
 		<div className={styles.wrapper}>
-			<h2>
-				Trending <span>Songs</span>
-			</h2>
 			<div className={styles.header}>
 				<div>Release Date</div>
 				<div>Album</div>
@@ -65,7 +62,7 @@ export default function TrendingSongsWidget() {
 			{tracks.slice(0, visibleCount).map((track, idx) => (
 				<section key={track.id} className={styles.TrendingSongs}>
 					<div className={styles.songsNumber}>
-						<div className={styles.number}>#{idx + 1}</div>
+						<div className={styles.number}>{idx + 1}</div>
 					</div>
 					<div className={styles.row}>
 						<div className={styles.coverBlock}>
