@@ -1,5 +1,6 @@
 import styles from './style.module.scss'
 import HeaderWidget from '../../widgets/headerWidget/HeaderWidget'
+import FooterWidget from '../../widgets/footerWidget/FooterWidget'
 
 const Contact = () => {
 	return (
@@ -48,6 +49,7 @@ const Contact = () => {
 					Los Angeles, CA 90001
 				</p>
 			</div>
+			<FooterWidget />
 		</section>
 	)
 }

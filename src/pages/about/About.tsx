@@ -1,5 +1,6 @@
 import styles from './style.module.scss'
 import HeaderWidget from '../../widgets/headerWidget/HeaderWidget'
+import FooterWidget from '../../widgets/footerWidget/FooterWidget'
 
 const AboutUs = () => {
 	return (
@@ -41,6 +42,7 @@ const AboutUs = () => {
 					<br />• Always evolving, always listening to feedback
 				</p>
 			</div>
+			<FooterWidget />
 		</section>
 	)
 }

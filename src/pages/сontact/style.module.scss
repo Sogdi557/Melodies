@@ -3,7 +3,7 @@
 	max-width: 1200px;
 	margin: 0 auto;
 	position: relative;
-	padding: 60px 20px;
+	padding: 0 20px;
 	overflow: hidden;
 }
 
@@ -46,7 +46,7 @@
 .glowBg {
 	content: '';
 	position: absolute;
-	top: -100px;
+	bottom: -100px;
 	left: -100px;
 	width: 600px;
 	height: 600px;

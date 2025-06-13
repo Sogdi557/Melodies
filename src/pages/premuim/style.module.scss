@@ -1,0 +1,167 @@
+.aboutSection {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	padding: 80px 20px;
+	overflow: hidden;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+.glowBgTop,
+.glowBgBottom {
+	position: absolute;
+	width: 500px;
+	height: 500px;
+	background: radial-gradient(circle, #ee10b0 0%, #181818 70%);
+	filter: blur(150px);
+	z-index: 0;
+	animation: floatGlow 12s ease-in-out infinite;
+}
+
+.glowBgTop {
+	top: -150px;
+	left: -150px;
+}
+
+.glowBgBottom {
+	bottom: -150px;
+	right: -150px;
+	animation-delay: 6s;
+}
+
+@keyframes floatGlow {
+	0%,
+	100% {
+		transform: translateY(0px) scale(1);
+	}
+	50% {
+		transform: translateY(30px) scale(1.05);
+	}
+}
+
+.aboutContent {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.aboutContent h1 {
+	font-size: 48px;
+	margin-bottom: 10px;
+	background: linear-gradient(90deg, #ee10b0, #0e9eef);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.aboutContent h1 span {
+	color: #fab5e7;
+}
+
+.aboutGlowLine {
+	height: 4px;
+	width: 100px;
+	margin: 20px auto;
+	background: linear-gradient(90deg, #ee10b0, #0e9eef);
+	animation: pulseLine 3s infinite;
+}
+
+@keyframes pulseLine {
+	0%,
+	100% {
+		opacity: 0.6;
+		width: 100px;
+	}
+	50% {
+		opacity: 1;
+		width: 130px;
+	}
+}
+
+.aboutContent h2 {
+	font-size: 28px;
+	color: #fab5e7;
+	margin-top: 40px;
+}
+
+.aboutContent p {
+	font-size: 18px;
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+
+.featuresList {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+	text-align: left;
+	display: inline-block;
+}
+
+.featuresList li {
+	margin-bottom: 10px;
+	padding-left: 25px;
+	position: relative;
+}
+
+.featuresList li::before {
+	content: '•';
+	position: absolute;
+	left: 0;
+	color: #ee10b0;
+}
+
+.teamGrid {
+	display: flex;
+	gap: 40px;
+	margin-top: 20px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.member {
+	text-align: center;
+}
+
+.avatar {
+	width: 120px;
+	height: 120px;
+	background: #333;
+	border-radius: 50%;
+	margin: 0 auto 10px;
+	background-image: url('/images/avatar-placeholder.png');
+	background-size: cover;
+	background-position: center;
+	filter: brightness(0.8);
+	transition: filter 0.3s ease;
+}
+
+.member:hover .avatar {
+	filter: brightness(1);
+}
+
+.buttonWrapper {
+	margin: 40px 0;
+}
+
+.primaryBtn {
+	background: linear-gradient(90deg, #d60e9e, #be0d8d);
+	border: none;
+	padding: 15px 40px;
+	border-radius: 30px;
+	color: #e7f5fd;
+	font-size: 18px;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.primaryBtn:hover {
+	background: linear-gradient(90deg, #6b074f, #53063e);
+	transform: scale(1.05);
+}
+
+.primaryBtn:active {
+	transform: scale(0.98);
+}
