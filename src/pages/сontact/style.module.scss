@@ -1,0 +1,84 @@
+.contactSection {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	position: relative;
+	padding: 60px 20px;
+	overflow: hidden;
+}
+
+.contactContent {
+	position: relative;
+	z-index: 2;
+
+	h1 {
+		font-size: 42px;
+		margin-bottom: 10px;
+
+		span {
+			color: #ee10b0;
+		}
+	}
+
+	h2 {
+		font-size: 24px;
+		color: #fab5e7;
+		margin-top: 32px;
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-size: 16px;
+		color: #dbf0fd;
+		line-height: 1.6;
+		margin-bottom: 16px;
+	}
+}
+
+.contactGlowLine {
+	height: 3px;
+	width: 80px;
+	background: linear-gradient(90deg, #ee10b0, #0e9eef);
+	margin-bottom: 30px;
+	animation: pulseLine 3s infinite;
+}
+
+.glowBg {
+	content: '';
+	position: absolute;
+	top: -100px;
+	left: -100px;
+	width: 600px;
+	height: 600px;
+	background: radial-gradient(circle, #ee10b0 0%, #181818 70%);
+	filter: blur(120px);
+	z-index: 0;
+	animation: floatGlow 10s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(30px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes pulseLine {
+	0% {
+		opacity: 0.6;
+		width: 80px;
+	}
+	50% {
+		opacity: 1;
+		width: 100px;
+	}
+	100% {
+		opacity: 0.6;
+		width: 80px;
+	}
+}

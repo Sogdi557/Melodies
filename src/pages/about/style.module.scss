@@ -1,0 +1,89 @@
+$pink: #ee10b0;
+$blue: #0e9eef;
+$text-light: #fde7f7;
+$subtle-pink: #fcdbf3;
+$highlight: #fab5e7;
+
+.aboutSection {
+	color: $text-light;
+	position: relative;
+	overflow: hidden;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+.glowBg {
+	position: absolute;
+	width: 60%;
+	height: 100%;
+	top: 0;
+	right: -20%;
+	background: radial-gradient(circle at center, $pink, transparent 70%);
+	opacity: 0.15;
+	animation: floatGlow 12s infinite ease-in-out;
+	z-index: 0;
+}
+
+.aboutContent {
+	max-width: 1200px; // ✅ добавлено ограничение ширины
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+	padding: 0 32px;
+
+	h1 {
+		font-size: 48px;
+		font-weight: bold;
+		color: $text-light;
+
+		span {
+			color: $pink;
+			text-shadow: 0 0 10px $highlight;
+		}
+	}
+
+	p {
+		font-size: 18px;
+		line-height: 32px;
+		margin-top: 24px;
+		color: $subtle-pink;
+	}
+
+	h2 {
+		margin-top: 48px;
+		font-size: 32px;
+		color: $blue;
+		text-shadow: 0 0 5px $blue;
+	}
+}
+
+.aboutGlowLine {
+	height: 4px;
+	width: 100px;
+	margin: 32px 0;
+	background: linear-gradient(to right, $pink, $blue);
+	animation: glowLine 2s ease-in-out infinite alternate;
+	border-radius: 5px;
+}
+
+@keyframes glowLine {
+	from {
+		transform: scaleX(1);
+		opacity: 0.7;
+	}
+	to {
+		transform: scaleX(1.5);
+		opacity: 1;
+	}
+}
+
+@keyframes floatGlow {
+	0% {
+		transform: translateY(0px) scale(1);
+	}
+	50% {
+		transform: translateY(20px) scale(1.05);
+	}
+	100% {
+		transform: translateY(0px) scale(1);
+	}
+}

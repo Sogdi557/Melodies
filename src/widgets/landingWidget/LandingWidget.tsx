@@ -48,7 +48,7 @@ const LandingWidget = () => {
 					</nav>
 					<div className={styles.button}>
 						<NavLink
-							to='/login'
+							to='/AuthWidgetModal'
 							className={({ isActive }) => (isActive ? styles.active : '')}
 						>
 							<button className={styles.loginBtn}>Login</button>

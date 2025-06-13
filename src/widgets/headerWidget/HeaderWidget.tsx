@@ -34,7 +34,7 @@ export default function HeaderWidget() {
 					About Us
 				</NavLink>
 				<NavLink
-					to='/contact'
+					to='/сontact'
 					className={({ isActive }) => (isActive ? styles.active : '')}
 				>
 					Contact

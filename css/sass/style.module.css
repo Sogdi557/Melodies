@@ -1,96 +1,79 @@
-.section {
-  padding: 32px;
+.contactSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
+  padding: 60px 20px;
+  overflow: hidden;
 }
-.section h2 {
-  font-size: 37px;
-  font-weight: bold;
-  margin-bottom: 19px;
-  cursor: default;
-  padding-left: 10px;
+
+.contactContent {
+  position: relative;
+  z-index: 2;
 }
-.section .white {
-  color: #ffffff;
+.contactContent h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
 }
-.section .pink {
+.contactContent h1 span {
   color: #ee10b0;
 }
-.section .videoGrid {
-  display: flex;
-  gap: 46px;
-  flex-wrap: nowrap;
-  max-width: 1075px;
-  overflow-x: auto;
+.contactContent h2 {
+  font-size: 24px;
+  color: #fab5e7;
+  margin-top: 32px;
+  margin-bottom: 10px;
 }
-.section .videoGrid::-webkit-scrollbar {
-  display: none;
+.contactContent p {
+  font-size: 16px;
+  color: #dbf0fd;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
-.section .videoGrid .card {
-  background-color: #1f1f1f;
-  width: 320px;
-  border-radius: 8px;
-  overflow: hidden;
-  flex-shrink: 0;
-  transition: transform 0.2s;
-  cursor: pointer;
+
+.contactGlowLine {
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(90deg, #ee10b0, #0e9eef);
+  margin-bottom: 30px;
+  animation: pulseLine 3s infinite;
 }
-.section .videoGrid .card:hover {
-  transform: scale(1.05);
-}
-.section .videoGrid .card .thumbnail {
-  width: 100%;
-  height: 190px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
-}
-.section .videoGrid .card .info {
-  padding: 11px;
-}
-.section .videoGrid .card .info .title {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 6px;
-}
-.section .videoGrid .card .info .meta {
-  display: flex;
-  justify-content: space-between;
-  color: #aaaaaa;
-  font-size: 14px;
-}
-.section .videoGrid .viewAll {
+
+.glowBg {
+  content: "";
   position: absolute;
-  top: 50%;
-  right: 0;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
+  top: -100px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #ee10b0 0%, #181818 70%);
+  filter: blur(120px);
+  z-index: 0;
+  animation: floatGlow 10s ease-in-out infinite;
 }
-.section .videoGrid .viewAll .viewButton {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #1e1e1e;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s;
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
-.section .videoGrid .viewAll .viewButton svg {
-  color: #fff;
-}
-.section .videoGrid .viewAll .viewButton:hover {
-  background: #ee10b0;
-}
-.section .videoGrid .viewAll .viewText {
-  margin-top: 8px;
-  font-size: 14px;
+@keyframes pulseLine {
+  0% {
+    opacity: 0.6;
+    width: 80px;
+  }
+  50% {
+    opacity: 1;
+    width: 100px;
+  }
+  100% {
+    opacity: 0.6;
+    width: 80px;
+  }
 }/*# sourceMappingURL=style.module.css.map */
