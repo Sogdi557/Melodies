@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import styles from './style.module.scss'
-import { Plus, ChevronLeft } from 'lucide-react'
+import { Plus } from 'lucide-react'
 
 interface Artist {
 	name: string
@@ -13,7 +13,7 @@ const clientSecret = '187f1cb1c3b34998b17dce975fad783f'
 
 const PopularArtists = () => {
 	const [artists, setArtists] = useState<Artist[]>([])
-	const [startIndex, setStartIndex] = useState(0)
+	const [visibleCount, setVisibleCount] = useState(6)
 
 	const getAccessToken = async (): Promise<string | null> => {
 		try {
@@ -67,18 +67,10 @@ const PopularArtists = () => {
 		fetchArtists()
 	}, [])
 
-	const visibleArtists = artists.slice(startIndex, startIndex + 6)
+	const visibleArtists = artists.slice(0, visibleCount)
 
 	const handleNext = () => {
-		if (startIndex + 6 < artists.length) {
-			setStartIndex(prev => prev + 1)
-		}
-	}
-
-	const handlePrev = () => {
-		if (startIndex > 0) {
-			setStartIndex(prev => prev - 1)
-		}
+		setVisibleCount(prev => Math.min(prev + 1, artists.length))
 	}
 
 	return (
@@ -93,7 +85,8 @@ const PopularArtists = () => {
 						<p>{artist.name}</p>
 					</div>
 				))}
-				{startIndex + 6 < artists.length && (
+
+				{visibleCount < artists.length && (
 					<div className={styles.viewAll}>
 						<button className={styles.viewButton} onClick={handleNext}>
 							<Plus />

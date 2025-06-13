@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
-import { Plus, ChevronLeft } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import fetchSpotifyData from '../../pages/cart/Cart'
 
 interface Song {
@@ -8,9 +8,10 @@ interface Song {
 	title: string
 	subtitle: string
 	image: string
+	category?: string
 }
 
-export default function NewReleaseSongs() {
+export default function WeeklyTopSongsWidget() {
 	const [songs, setSongs] = useState<Song[]>([])
 	const [visibleCount, setVisibleCount] = useState(10)
 
@@ -18,32 +19,28 @@ export default function NewReleaseSongs() {
 		const loadSongs = async () => {
 			try {
 				const fetched = await fetchSpotifyData('new', undefined)
+				console.log(fetched) // Посмотрите структуру данных
 				if (Array.isArray(fetched)) {
-					setSongs(fetched)
+					setSongs(fetched) // Без фильтра для теста
 				} else {
-					console.warn('Неверный формат данных:', fetched)
 					setSongs([])
 				}
 			} catch (error) {
-				console.error('Ошибка загрузки песен:', error)
+				setSongs([])
 			}
 		}
 		loadSongs()
 	}, [])
 
 	const handleViewAll = () => {
-		setVisibleCount(prev => Math.min(prev + 1, songs.length))
-	}
-
-	const handleBack = () => {
-		setVisibleCount(prev => Math.max(prev - 1))
+		setVisibleCount(prev => Math.min(prev + 5, songs.length))
 	}
 
 	return (
 		<section className={styles.weeklyTopSongs}>
 			<div className={styles.header}>
 				<h2>
-					New Release <span className={styles.highlight}>Songs</span>
+					Weekly Top <span className={styles.highlight}>Songs</span>
 				</h2>
 			</div>
 			<div className={styles.songsList}>
@@ -63,17 +60,14 @@ export default function NewReleaseSongs() {
 						</div>
 					</div>
 				))}
-
-				<div className={styles.viewAll}>
-					{visibleCount < songs.length && (
-						<>
-							<button className={styles.viewButton} onClick={handleViewAll}>
-								<Plus />
-							</button>
-							<span className={styles.viewText}>View All</span>
-						</>
-					)}
-				</div>
+				{visibleCount < songs.length && (
+					<div className={styles.viewAll}>
+						<button className={styles.viewButton} onClick={handleViewAll}>
+							<Plus />
+						</button>
+						<span className={styles.viewText}>View All</span>
+					</div>
+				)}
 			</div>
 		</section>
 	)

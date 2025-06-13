@@ -20,7 +20,7 @@ export default function NewReleaseSongs() {
 		const loadSongs = async () => {
 			try {
 				const fetched = await fetchSpotifyData('new', undefined)
-				console.log('fetched:', fetched) // <--- добавьте это!
+				console.log('fetched:', fetched)
 				if (Array.isArray(fetched)) {
 					setSongs(fetched)
 				} else {
@@ -60,7 +60,11 @@ export default function NewReleaseSongs() {
 							<h4 className={styles.title}>{song.title}</h4>
 							<p className={styles.artist}>{song.subtitle}</p>
 							{song.preview_url && (
-								<audio controls src={song.preview_url} style={{ width: '100%' }}>
+								<audio
+									controls
+									src={song.preview_url}
+									style={{ width: '100%' }}
+								>
 									Ваш браузер не поддерживает аудио.
 								</audio>
 							)}

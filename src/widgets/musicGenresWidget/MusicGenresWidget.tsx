@@ -34,7 +34,7 @@ export default function MoodPlaylist() {
 		<section className={styles.weeklyTopSongs}>
 			<div className={styles.header}>
 				<h2>
-					Mood <span className={styles.highlight}>Playlist</span>
+					Music <span className={styles.highlight}>Genres</span>
 				</h2>
 			</div>
 

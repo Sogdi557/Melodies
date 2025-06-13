@@ -7,7 +7,7 @@ import PopularArtistsWidget from '../../widgets/popularArtistsWidget/PopularArti
 import WeeklyTopSongsWidget from '../../widgets/weeklyTopSongsWidget/WeeklyTopSongsWidget'
 import TopAlbums from '../../widgets/topAlbumsWidget/TopAlbums'
 import MoodPlaylist from '../../widgets/moodPlaylistWidget/MoodPlaylist'
-import NewReleaseSongs from '../../widgets/weeklyTopSongsWidget/WeeklyTopSongsWidget'
+import NewReleaseSongs from '../../widgets/newReleaseSongsWidget/NewReleaseSongs'
 
 export default function Home() {
 	return (

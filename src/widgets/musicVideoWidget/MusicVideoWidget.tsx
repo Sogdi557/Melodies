@@ -84,7 +84,7 @@ const MusicVideoSection = () => {
 		)
 
 		if (!isDuplicate) {
-			setVisibleVideos(prev => [...prev.slice(1), next])
+			setVisibleVideos(prev => [...prev, next])
 		}
 		setCurrentIndex(prev => prev + 1)
 	}

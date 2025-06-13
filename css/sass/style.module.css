@@ -1,103 +1,96 @@
-.wrapper {
-  font-family: sans-serif;
-  padding-left: 30px;
+.section {
+  padding: 32px;
+  position: relative;
 }
-.wrapper h2 {
+.section h2 {
   font-size: 37px;
-  margin-bottom: 16px;
+  font-weight: bold;
+  margin-bottom: 19px;
   cursor: default;
   padding-left: 10px;
 }
-.wrapper h2 span {
+.section .white {
+  color: #ffffff;
+}
+.section .pink {
   color: #ee10b0;
 }
-
-.header {
+.section .videoGrid {
   display: flex;
-  justify-content: space-between;
-  padding: 0 12px 12px 465px;
-  font-size: 22px;
+  gap: 46px;
+  flex-wrap: nowrap;
+  max-width: 1075px;
+  overflow-x: auto;
 }
-
-.TrendingSongs {
-  display: flex;
-  align-items: center;
-  cursor: default;
+.section .videoGrid::-webkit-scrollbar {
+  display: none;
 }
-.TrendingSongs .songsNumber {
-  width: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600px;
-}
-.TrendingSongs .songsNumber .number {
-  font-weight: 600px;
-  font-size: 20px;
-}
-.TrendingSongs .row {
-  display: flex;
-  align-items: center;
-  background: #1e1e1e;
-  border-radius: 6px;
-  padding: 12px;
-  margin-bottom: 8px;
-  gap: 12px;
-  flex: 1;
+.section .videoGrid .card {
+  background-color: #1f1f1f;
+  width: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.2s;
   cursor: pointer;
 }
-.TrendingSongs .coverBlock {
-  display: flex;
-  align-items: center;
-  flex: 1;
+.section .videoGrid .card:hover {
+  transform: scale(1.05);
 }
-.TrendingSongs .coverBlock img {
-  width: 48px;
-  height: 48px;
-  border-radius: 4px;
+.section .videoGrid .card .thumbnail {
+  width: 100%;
+  height: 190px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-right: 12px;
+  display: block;
 }
-.TrendingSongs .coverBlock .text {
+.section .videoGrid .card .info {
+  padding: 11px;
+}
+.section .videoGrid .card .info .title {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.section .videoGrid .card .info .meta {
+  display: flex;
+  justify-content: space-between;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+.section .videoGrid .viewAll {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  padding: 16px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
 }
-.TrendingSongs .coverBlock .title {
-  font-weight: bold;
-}
-.TrendingSongs .coverBlock .artist {
-  font-size: 12px;
-}
-.TrendingSongs .date {
-  width: 120px;
-}
-.TrendingSongs .album {
-  flex: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-}
-.TrendingSongs .time {
+.section .videoGrid .viewAll .viewButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #1e1e1e;
+  border: none;
   display: flex;
   align-items: center;
-  gap: 12px;
-  justify-content: flex-end;
-  margin-right: 10px;
-}
-.TrendingSongs .time svg {
-  stroke: #ee10b0;
-}
-
-.viewAll {
-  margin-top: 16px;
-  margin-left: 50%;
-  background: #1e1e1e;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 14px;
+  justify-content: center;
   cursor: pointer;
+  transition: transform 0.3s;
+}
+.section .videoGrid .viewAll .viewButton svg {
+  color: #fff;
+}
+.section .videoGrid .viewAll .viewButton:hover {
+  background: #ee10b0;
+}
+.section .videoGrid .viewAll .viewText {
+  margin-top: 8px;
+  font-size: 14px;
 }/*# sourceMappingURL=style.module.css.map */

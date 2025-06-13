@@ -1,0 +1,62 @@
+.wrapper {
+	font-family: 'Segoe UI', sans-serif;
+	color: white;
+	padding: 40px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 500px;
+	width: 1080px;
+	overflow: hidden;
+	margin: 15px 40px 120px;
+	border-radius: 20px;
+}
+
+.topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.backButton {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.topActions {
+	display: flex;
+	gap: 20px;
+
+	button {
+		background: transparent;
+		border: none;
+		color: white;
+		font-size: 16px;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.userIcon {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.content {
+	p {
+		font-size: 100px;
+		font-weight: 900;
+		bottom: 0;
+		margin-top: 20%;
+	}
+}

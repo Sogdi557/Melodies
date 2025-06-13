@@ -21,8 +21,7 @@
 
 	.songsList {
 		display: flex;
-		gap: 18px;
-		max-width: 1020px;
+		max-width: 1075px;
 		overflow-x: auto;
 		white-space: nowrap;
 
@@ -34,8 +33,9 @@
 			display: inline-block;
 			background: #1e1e1e;
 			border-radius: 10px;
-			padding: 5px 16px 10px;
-			min-width: 165px;
+			padding: 10px;
+			margin: 5px 12px;
+			min-width: 170px;
 			width: 165px;
 			display: flex;
 			flex-direction: column;
@@ -89,8 +89,6 @@
 			background: transparent;
 			color: #fff;
 			cursor: pointer;
-
-			// min-width: 80px;
 
 			.viewButton {
 				width: 60px;

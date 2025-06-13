@@ -36,7 +36,7 @@ export default function TopAlbums() {
 		<section className={styles.weeklyTopSongs}>
 			<div className={styles.header}>
 				<h2>
-					Top <span className={styles.highlight}>Albums</span>
+					Mood <span className={styles.highlight}>Playlist </span>
 				</h2>
 			</div>
 
@@ -46,7 +46,6 @@ export default function TopAlbums() {
 						<img src={album.image} alt={album.title} className={styles.cover} />
 						<div className={styles.songInfo}>
 							<h4 className={styles.title}>{album.title}</h4>
-							<p className={styles.artist}>{album.artist}</p>
 						</div>
 					</div>
 				))}
