@@ -49,7 +49,9 @@ const Contact = () => {
 					Los Angeles, CA 90001
 				</p>
 			</div>
-			<FooterWidget />
+			<div className='footer'>
+				<FooterWidget />
+			</div>
 		</section>
 	)
 }

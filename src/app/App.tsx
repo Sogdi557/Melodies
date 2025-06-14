@@ -8,6 +8,7 @@ import Albums from '../pages/albums/Albums'
 import Artists from '../pages/artists/Artists'
 import Contact from '../pages/сontact/Contact'
 import Premuim from '../pages/premuim/Premuim'
+import PecentlyAdded from '../pages/pecentlyAdded/RecentlyAdded'
 
 function App() {
 	return (
@@ -21,7 +22,8 @@ function App() {
 				<Route path='/artists' element={<Artists />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/contact' element={<Contact />} />
-				<Route path='/premuim' element={<Premuim />} />
+				<Route path='/premium' element={<Premuim />} />
+				<Route path='/pecentlyAdded' element={<PecentlyAdded />} />
 			</Routes>
 			{/* <FooterWidget /> */}
 		</div>

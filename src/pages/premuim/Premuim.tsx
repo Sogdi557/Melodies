@@ -3,7 +3,7 @@ import styles from './style.module.scss'
 import HeaderWidget from '../../widgets/headerWidget/HeaderWidget'
 import FooterWidget from '../../widgets/footerWidget/FooterWidget'
 
-const AboutUs: React.FC = () => {
+const Premium: React.FC = () => {
 	return (
 		<section className={styles.aboutSection}>
 			<HeaderWidget />
@@ -42,29 +42,10 @@ const AboutUs: React.FC = () => {
 					<li>ightning-fast, sleek interface with vibrant aesthetics</li>
 					<li>Always evolving, always listening to feedback</li>
 				</ul>
-
-				<h2>Meet the Team</h2>
-				<div className={styles.teamGrid}>
-					{[
-						{ name: 'Иван Иванов', role: 'Founder & Producer' },
-						{ name: 'Анна Смирнова', role: 'Creative Director' },
-						{ name: 'Алексей Кузнецов', role: 'Lead Developer' },
-					].map(member => (
-						<div key={member.name} className={styles.member}>
-							<div className={styles.avatar} />
-							<h3>{member.name}</h3>
-							<p>{member.role}</p>
-						</div>
-					))}
-				</div>
-
-				<div className={styles.buttonWrapper}>
-					<button className={styles.primaryBtn}>Join Our Community</button>
-				</div>
 			</div>
 			<FooterWidget />
 		</section>
 	)
 }
 
-export default AboutUs
+export default Premium
