@@ -1,0 +1,90 @@
+.favoritesSection {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 60px 20px;
+	text-align: center;
+}
+
+.favoritesSection h2 {
+	font-size: 36px;
+	background: linear-gradient(90deg, #ee10b0, #0e9eef);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.favoritesSection h2 span {
+	color: #fab5e7;
+}
+
+.line {
+	height: 3px;
+	width: 90px;
+	background: linear-gradient(90deg, #ee10b0, #0e9eef);
+	margin: 20px auto 40px;
+	animation: pulseLine 2.5s infinite;
+}
+
+@keyframes pulseLine {
+	0%,
+	100% {
+		opacity: 0.6;
+		width: 90px;
+	}
+	50% {
+		opacity: 1;
+		width: 120px;
+	}
+}
+
+.trackGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 30px;
+	justify-items: center;
+}
+
+.trackCard {
+	background-color: #222;
+	border-radius: 16px;
+	overflow: hidden;
+	width: 100%;
+	max-width: 220px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0 0 12px rgba(238, 16, 176, 0.1);
+	cursor: pointer;
+
+	&:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 0 20px rgba(238, 16, 176, 0.3);
+	}
+}
+
+.cover {
+	width: 100%;
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+}
+
+.trackInfo {
+	padding: 14px;
+	text-align: center;
+
+	h3 {
+		font-size: 18px;
+		margin: 5px 0;
+		color: #e7f5fd;
+	}
+
+	p {
+		font-size: 14px;
+		color: #b4e1fa;
+		margin-bottom: 6px;
+	}
+
+	.addedTime {
+		font-size: 13px;
+		color: #8f0a6a;
+	}
+}

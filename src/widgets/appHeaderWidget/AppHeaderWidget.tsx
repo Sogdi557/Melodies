@@ -151,7 +151,7 @@ const HeaderWidget = () => {
 					Recently Added
 				</NavLink>
 				<NavLink
-					to='/pecentlyAdded'
+					to='/mostPlayed'
 					className={({ isActive }) => (isActive ? styles.active : '')}
 				>
 					<svg
@@ -202,7 +202,7 @@ const HeaderWidget = () => {
 			<nav className={styles.navSection}>
 				<p className={styles.sectionTitle}>Playlist and Favorite</p>
 				<NavLink
-					to='/favorites'
+					to='/youFavorites'
 					className={({ isActive }) => (isActive ? styles.active : '')}
 				>
 					<svg
