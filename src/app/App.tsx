@@ -11,6 +11,9 @@ import Premuim from '../pages/premuim/Premuim'
 import PecentlyAdded from '../pages/pecentlyAdded/RecentlyAdded'
 import MostPlayed from '../pages/mostPlayed/MostPlayed'
 import YourFavorites from '../pages/yourFavorites/YourFavorites'
+import { YourPlaylist } from '../pages/yourPlaylist/YourPlaylist'
+import AppPlaylist from '../pages/addPlaylist/AddPlaylist'
+import Setting from '../pages/setting/Setting'
 
 function App() {
 	return (
@@ -27,7 +30,10 @@ function App() {
 				<Route path='/premium' element={<Premuim />} />
 				<Route path='/pecentlyAdded' element={<PecentlyAdded />} />
 				<Route path='/mostPlayed' element={<MostPlayed />} />
-				<Route path='/youFavorites' element={<YourFavorites />} />
+				<Route path='/yourFavorites' element={<YourFavorites />} />
+				<Route path='/yourPlaylist' element={<YourPlaylist />} />
+				<Route path='/addPlaylist' element={<AppPlaylist />} />
+				<Route path='/settings' element={<Setting />} />'
 			</Routes>
 			{/* <FooterWidget /> */}
 		</div>

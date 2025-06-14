@@ -1,0 +1,248 @@
+.addPlaylistContainer {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+.addButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+	padding: 20px;
+	background: linear-gradient(135deg, #fcdbf3 0%, #fde7f7 100%);
+	border: 2px dashed #ee10b0;
+	border-radius: 12px;
+	color: #ee10b0;
+	font-size: 18px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		background: linear-gradient(135deg, #fde7f7 0%, #fcdbf3 100%);
+		transform: translateY(-3px);
+		box-shadow: 0 5px 15px rgba(238, 16, 176, 0.2);
+
+		&::after {
+			transform: translateX(100%);
+		}
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(238, 16, 176, 0.1),
+			transparent
+		);
+		transition: transform 0.6s ease;
+	}
+}
+
+.plusIcon {
+	font-size: 24px;
+	font-weight: bold;
+	transition: transform 0.3s ease;
+}
+
+.addButton:hover .plusIcon {
+	transform: scale(1.2);
+}
+
+.formContainer {
+	background: white;
+	border-radius: 12px;
+	padding: 25px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	animation: fadeIn 0.4s ease-out;
+}
+
+.formHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+
+	h3 {
+		color: #181818;
+		font-size: 22px;
+		margin: 0;
+	}
+}
+
+.closeButton {
+	background: none;
+	border: none;
+	font-size: 24px;
+	color: #6b074f;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+
+	&:hover {
+		transform: rotate(90deg);
+		color: #ee10b0;
+	}
+}
+
+.playlistForm {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.formGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	label {
+		color: #181818;
+		font-weight: 600;
+		font-size: 14px;
+	}
+}
+
+.formInput,
+.formTextarea {
+	padding: 12px 15px;
+	border: 1px solid #fab5e7;
+	border-radius: 8px;
+	font-size: 16px;
+	transition: all 0.3s ease;
+	background-color: #fde7f7;
+
+	&:focus {
+		outline: none;
+		border-color: #ee10b0;
+		box-shadow: 0 0 0 2px rgba(238, 16, 176, 0.2);
+	}
+
+	&::placeholder {
+		color: #be0d8d;
+		opacity: 0.5;
+	}
+}
+
+.formTextarea {
+	resize: vertical;
+	min-height: 80px;
+}
+
+.switch {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: relative;
+	width: 50px;
+	height: 24px;
+	background-color: #fab5e7;
+	border-radius: 24px;
+	transition: all 0.3s ease;
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: 20px;
+		width: 20px;
+		left: 2px;
+		bottom: 2px;
+		background-color: white;
+		border-radius: 50%;
+		transition: all 0.3s ease;
+	}
+}
+
+input:checked + .slider {
+	background-color: #ee10b0;
+}
+
+input:checked + .slider::before {
+	transform: translateX(26px);
+}
+
+.switchLabel {
+	color: #181818;
+	font-size: 14px;
+}
+
+.formActions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+	margin-top: 10px;
+}
+
+.cancelButton,
+.createButton {
+	padding: 12px 24px;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.cancelButton {
+	background: transparent;
+	border: 1px solid #6b074f;
+	color: #6b074f;
+
+	&:hover {
+		background: rgba(107, 7, 79, 0.1);
+	}
+}
+
+.createButton {
+	background: linear-gradient(90deg, #ee10b0, #d60e9e);
+	border: none;
+	color: white;
+
+	&:hover {
+		background: linear-gradient(90deg, #d60e9e, #be0d8d);
+		transform: translateY(-2px);
+		box-shadow: 0 5px 15px rgba(238, 16, 176, 0.3);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+	.formActions {
+		flex-direction: column;
+	}
+
+	.cancelButton,
+	.createButton {
+		width: 100%;
+	}
+}
