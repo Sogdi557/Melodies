@@ -1,7 +1,20 @@
 import styles from './style.module.scss'
 import { NavLink } from 'react-router-dom'
+import AuthModal from '../authWidgetModal/AuthWidgetModal'
+import { useState } from 'react'
 
 const LandingWidget = () => {
+	const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
+	const [authType, setAuthType] = useState<'login' | 'signup'>('login')
+
+	const openAuthModal = (type: 'login' | 'signup') => {
+		setAuthType(type)
+		setIsAuthModalOpen(true)
+	}
+
+	const closeAuthModal = () => {
+		setIsAuthModalOpen(false)
+	}
 	return (
 		<div className={styles.LandingWidget}>
 			<div className={styles.landing}>
@@ -46,20 +59,26 @@ const LandingWidget = () => {
 							Premium
 						</NavLink>
 					</nav>
-					<div className={styles.button}>
-						<NavLink
-							to='/AuthWidgetModal'
-							className={({ isActive }) => (isActive ? styles.active : '')}
+					<div className={styles.authButtons}>
+						<button
+							className={styles.loginBtn}
+							onClick={() => openAuthModal('login')}
 						>
-							<button className={styles.loginBtn}>Login</button>
-						</NavLink>
-						<NavLink
-							to='/signup'
-							className={({ isActive }) => (isActive ? styles.active : '')}
+							Login
+						</button>
+						<button
+							className={styles.signupBtn}
+							onClick={() => openAuthModal('signup')}
 						>
-							<button className={styles.signupBtn}>Sign Up</button>
-						</NavLink>
+							Sign Up
+						</button>
 					</div>
+
+					<AuthModal
+						isOpen={isAuthModalOpen}
+						onClose={closeAuthModal}
+						initialType={authType}
+					/>
 				</header>
 
 				<main className={styles.mainContent}>

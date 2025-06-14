@@ -39,18 +39,21 @@ export default function MoodPlaylist() {
 			</div>
 
 			<div className={styles.songsList}>
-				{playlists.map(playlist => (
-					<div key={playlist.id} className={styles.songCard}>
-						<img
-							src={playlist.image}
-							alt={playlist.title}
-							className={styles.cover}
-						/>
-						<div className={styles.songInfo}>
-							<h4 className={styles.title}>{playlist.title}</h4>
+				{playlists
+					.slice() // копия массива
+					.sort(() => Math.random() - 0.5) // базовое перемешивание
+					.map(playlist => (
+						<div key={playlist.id} className={styles.songCard}>
+							<img
+								src={playlist.image}
+								alt={playlist.title}
+								className={styles.cover}
+							/>
+							<div className={styles.songInfo}>
+								<h4 className={styles.title}>{playlist.title}</h4>
+							</div>
 						</div>
-					</div>
-				))}
+					))}
 
 				<div className={styles.viewAll}>
 					<button className={styles.viewButton}>

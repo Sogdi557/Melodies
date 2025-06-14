@@ -1,3 +1,24 @@
+.signup_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #111;
+	color: #fff;
+	font-family: 'Arial', sans-serif;
+
+	.logo {
+		width: 150px;
+		margin-bottom: 20px;
+	}
+
+	.title {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+}
+
 .header {
 	display: flex;
 	justify-content: flex-start;
@@ -51,7 +72,7 @@
 		}
 	}
 
-	.button {
+	.authButtons {
 		display: flex;
 		right: 0;
 		.loginBtn {

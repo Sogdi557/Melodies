@@ -41,14 +41,21 @@ export default function TopAlbums() {
 			</div>
 
 			<div className={styles.songsList}>
-				{albums.map(album => (
-					<div key={album.id} className={styles.songCard}>
-						<img src={album.image} alt={album.title} className={styles.cover} />
-						<div className={styles.songInfo}>
-							<h4 className={styles.title}>{album.title}</h4>
+				{albums
+					.slice() // создаем копию массива
+					.sort(() => Math.random() - 0.5) // перемешиваем
+					.map(album => (
+						<div key={album.id} className={styles.songCard}>
+							<img
+								src={album.image}
+								alt={album.title}
+								className={styles.cover}
+							/>
+							<div className={styles.songInfo}>
+								<h4 className={styles.title}>{album.title}</h4>
+							</div>
 						</div>
-					</div>
-				))}
+					))}
 
 				<div className={styles.viewAll}>
 					<button className={styles.viewButton}>

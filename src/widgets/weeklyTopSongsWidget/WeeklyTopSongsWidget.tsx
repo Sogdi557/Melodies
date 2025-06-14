@@ -14,6 +14,7 @@ interface Song {
 export default function WeeklyTopSongsWidget() {
 	const [songs, setSongs] = useState<Song[]>([])
 	const [visibleCount, setVisibleCount] = useState(10)
+	const shuffledSongs = [...songs].sort(() => Math.random() - 0.5)
 
 	useEffect(() => {
 		const loadSongs = async () => {
@@ -44,22 +45,27 @@ export default function WeeklyTopSongsWidget() {
 				</h2>
 			</div>
 			<div className={styles.songsList}>
-				{songs.slice(0, visibleCount).map(song => (
-					<div key={song.id} className={styles.songCard}>
-						<img
-							src={song.image}
-							alt={song.title}
-							className={styles.cover}
-							onError={e => {
-								;(e.target as HTMLImageElement).src = '/placeholder.jpg'
-							}}
-						/>
-						<div className={styles.songInfo}>
-							<h4 className={styles.title}>{song.title}</h4>
-							<p className={styles.artist}>{song.subtitle}</p>
+				{/* {songs.slice(0, visibleCount).map(song => ( */}
+				{songs
+					.slice() // копируем массив
+					.sort(() => Math.random() - 0.5) // перемешиваем
+					.slice(0, visibleCount) // берем нужное количество
+					.map(song => (
+						<div key={song.id} className={styles.songCard}>
+							<img
+								src={song.image}
+								alt={song.title}
+								className={styles.cover}
+								onError={e => {
+									;(e.target as HTMLImageElement).src = '/placeholder.jpg'
+								}}
+							/>
+							<div className={styles.songInfo}>
+								<h4 className={styles.title}>{song.title}</h4>
+								<p className={styles.artist}>{song.subtitle}</p>
+							</div>
 						</div>
-					</div>
-				))}
+					))}
 				{visibleCount < songs.length && (
 					<div className={styles.viewAll}>
 						<button className={styles.viewButton} onClick={handleViewAll}>

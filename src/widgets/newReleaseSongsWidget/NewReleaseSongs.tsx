@@ -46,31 +46,35 @@ export default function NewReleaseSongs() {
 				</h2>
 			</div>
 			<div className={styles.songsList}>
-				{songs.slice(0, visibleCount).map(song => (
-					<div key={song.id} className={styles.songCard}>
-						<img
-							src={song.image}
-							alt={song.title}
-							className={styles.cover}
-							onError={e => {
-								;(e.target as HTMLImageElement).src = '/placeholder.jpg'
-							}}
-						/>
-						<div className={styles.songInfo}>
-							<h4 className={styles.title}>{song.title}</h4>
-							<p className={styles.artist}>{song.subtitle}</p>
-							{song.preview_url && (
-								<audio
-									controls
-									src={song.preview_url}
-									style={{ width: '100%' }}
-								>
-									Ваш браузер не поддерживает аудио.
-								</audio>
-							)}
+				{songs
+					.slice() // копируем массив
+					.sort(() => Math.random() - 0.5) // перемешиваем
+					.slice(0, visibleCount) // берем нужное количество
+					.map(song => (
+						<div key={song.id} className={styles.songCard}>
+							<img
+								src={song.image}
+								alt={song.title}
+								className={styles.cover}
+								onError={e => {
+									;(e.target as HTMLImageElement).src = '/placeholder.jpg'
+								}}
+							/>
+							<div className={styles.songInfo}>
+								<h4 className={styles.title}>{song.title}</h4>
+								<p className={styles.artist}>{song.subtitle}</p>
+								{song.preview_url && (
+									<audio
+										controls
+										src={song.preview_url}
+										style={{ width: '100%' }}
+									>
+										Ваш браузер не поддерживает аудио.
+									</audio>
+								)}
+							</div>
 						</div>
-					</div>
-				))}
+					))}
 
 				{visibleCount < songs.length && (
 					<div className={styles.viewAll}>

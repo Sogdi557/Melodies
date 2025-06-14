@@ -33,7 +33,7 @@ function App() {
 				<Route path='/yourFavorites' element={<YourFavorites />} />
 				<Route path='/yourPlaylist' element={<YourPlaylist />} />
 				<Route path='/addPlaylist' element={<AppPlaylist />} />
-				<Route path='/settings' element={<Setting />} />'
+				{/* <Route path='/settings' element={<Setting />} />' */}
 			</Routes>
 			{/* <FooterWidget /> */}
 		</div>

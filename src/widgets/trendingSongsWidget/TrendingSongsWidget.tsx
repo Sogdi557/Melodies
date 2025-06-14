@@ -62,34 +62,38 @@ export default function TrendingSongsWidget() {
 				<div>Album</div>
 				<div>Time</div>
 			</div>
-			{tracks.slice(0, visibleCount).map((track, idx) => (
-				<section key={track.id} className={styles.TrendingSongs}>
-					<div className={styles.songsNumber}>
-						<div className={styles.number}>#{idx + 1}</div>
-					</div>
-					<div className={styles.row}>
-						<div className={styles.coverBlock}>
-							<img src={track.image} alt={track.title} />
-							<div className={styles.text}>
-								<div className={styles.title}>{track.title}</div>
-								<div className={styles.artist}>{track.artist}</div>
+			{tracks
+				.slice() // копируем массив
+				.sort(() => Math.random() - 0.5) // перемешиваем
+				.slice(0, visibleCount) // берем нужное количество
+				.map((track, idx) => (
+					<section key={track.id} className={styles.TrendingSongs}>
+						<div className={styles.songsNumber}>
+							<div className={styles.number}>#{idx + 1}</div>
+						</div>
+						<div className={styles.row}>
+							<div className={styles.coverBlock}>
+								<img src={track.image} alt={track.title} />
+								<div className={styles.text}>
+									<div className={styles.title}>{track.title}</div>
+									<div className={styles.artist}>{track.artist}</div>
+								</div>
+							</div>
+							<div className={styles.date}>{track.release}</div>
+							<div className={styles.album}>{track.album}</div>
+							<div className={styles.time}>
+								<Heart
+									size={18}
+									color={likedIds.includes(track.id) ? 'purple' : 'white'}
+									fill={likedIds.includes(track.id) ? 'purple' : 'none'}
+									onClick={() => toggleLike(track)}
+									style={{ cursor: 'pointer' }}
+								/>
+								<span>{track.time}</span>
 							</div>
 						</div>
-						<div className={styles.date}>{track.release}</div>
-						<div className={styles.album}>{track.album}</div>
-						<div className={styles.time}>
-							<Heart
-								size={18}
-								color={likedIds.includes(track.id) ? 'purple' : 'white'}
-								fill={likedIds.includes(track.id) ? 'purple' : 'none'}
-								onClick={() => toggleLike(track)}
-								style={{ cursor: 'pointer' }}
-							/>
-							<span>{track.time}</span>
-						</div>
-					</div>
-				</section>
-			))}
+					</section>
+				))}
 			{visibleCount < tracks.length && (
 				<button className={styles.viewAll} onClick={handleViewAll}>
 					+ View All

@@ -8,8 +8,6 @@ import WeeklyTopSongsWidget from '../../widgets/weeklyTopSongsWidget/WeeklyTopSo
 import TopAlbums from '../../widgets/topAlbumsWidget/TopAlbums'
 import MoodPlaylist from '../../widgets/moodPlaylistWidget/MoodPlaylist'
 import NewReleaseSongs from '../../widgets/newReleaseSongsWidget/NewReleaseSongs'
-// import SignUpForm from '../../widgets/signUpForm/SignUpForm'
-// import AuthWidgetModal from '../../widgets/authWidgetModal/AuthWidgetModal'
 
 export default function Home() {
 	return (
@@ -22,8 +20,6 @@ export default function Home() {
 			<MusicVideoWidget />
 			<TopAlbums />
 			<MoodPlaylist />
-			{/* <SignUpForm /> */}
-			{/* <AuthWidgetModal /> */}
 			<FooterWidget />
 		</div>
 	)

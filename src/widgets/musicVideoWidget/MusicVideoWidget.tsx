@@ -100,22 +100,26 @@ const MusicVideoSection = () => {
 				<span className={styles.pink}>Video</span>
 			</h2>
 			<div className={styles.videoGrid}>
-				{visibleVideos.map((video, idx) => (
-					<div className={styles.card} key={idx}>
-						<img
-							className={styles.thumbnail}
-							src={video.imageUrl}
-							alt={video.title}
-						/>
-						<div className={styles.info}>
-							<div className={styles.title}>{video.title}</div>
-							<div className={styles.meta}>
-								<span>{video.artist}</span>
-								<span>{video.views}</span>
+				{/* {visibleVideos.map((video, idx) => ( */}
+				{visibleVideos
+					.slice() // копируем массив, чтобы не мутировать исходный
+					.sort(() => Math.random() - 0.5) // перемешиваем
+					.map((video, idx) => (
+						<div className={styles.card} key={idx}>
+							<img
+								className={styles.thumbnail}
+								src={video.imageUrl}
+								alt={video.title}
+							/>
+							<div className={styles.info}>
+								<div className={styles.title}>{video.title}</div>
+								<div className={styles.meta}>
+									<span>{video.artist}</span>
+									<span>{video.views}</span>
+								</div>
 							</div>
 						</div>
-					</div>
-				))}
+					))}
 				{currentIndex < allVideos.length && (
 					<div className={styles.viewAll}>
 						<button className={styles.viewButton} onClick={handleViewAll}>
