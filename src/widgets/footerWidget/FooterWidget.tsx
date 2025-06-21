@@ -45,7 +45,15 @@ const Footer = () => {
 				</div>
 
 				<div className={styles.right}>
-					<h1 className={styles.logo}>Melodies</h1>
+					<NavLink
+						to='/somepage'
+						onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+					>
+						Melodies
+					</NavLink>
+					<NavLink to='/' className={styles.logo}>
+						Melodies
+					</NavLink>
 					<div className={styles.icons}>
 						<FaFacebookF />
 						<FaInstagram />

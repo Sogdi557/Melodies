@@ -1,73 +1,46 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
-import fetchSpotifyData from '../../pages/cart/Cart'
 
-interface Track {
+interface Artist {
 	id: string
-	title: string
-	artist: string
-	album: string
-	releaseDate: string
-	duration: string
+	name: string
 	imageUrl: string
 }
 
-const msToMinSec = (ms: number) => {
-	const min = Math.floor(ms / 60000)
-	const sec = Math.floor((ms % 60000) / 1000)
-	return `${min}:${sec < 10 ? '0' : ''}${sec}`
+// Пример функции получения артиста (эмуляция API)
+const fetchArtistData = async (): Promise<Artist> => {
+	return {
+		id: '7dGJo4pcD2V6oG8kP0tJRR',
+		name: 'Eminem',
+		imageUrl:
+			'https://i.scdn.co/image/ab6761610000e5eb12e3f20d05a8d6cfde988715',
+	}
 }
 
-const TrendingHitsMixWidget = () => {
-	const [track, setTrack] = useState<Track | null>(null)
+const ArtistHeader = () => {
+	const [artist, setArtist] = useState<Artist | null>(null)
 
 	useEffect(() => {
-		const fetchTrack = async () => {
-			const fetched = await fetchSpotifyData('new')
-			if (Array.isArray(fetched) && fetched.length > 0) {
-				const t = fetched[0]
-				setTrack({
-					id: t.id,
-					title: t.title || t.name,
-					artist:
-						t.artist ||
-						(t.artists ? t.artists.map((a: any) => a.name).join(', ') : ''),
-					album: t.album || t.album_name || (t.album && t.album.name) || '',
-					releaseDate:
-						t.releaseDate ||
-						t.release_date ||
-						(t.album && t.album.release_date) ||
-						'',
-					duration:
-						t.duration || (t.duration_ms ? msToMinSec(t.duration_ms) : ''),
-					imageUrl:
-						t.imageUrl ||
-						t.image ||
-						(t.album && t.album.images ? t.album.images[0]?.url : ''),
-				})
-			} else {
-				setTrack(null)
+		const fetchData = async () => {
+			try {
+				const data = await fetchArtistData()
+				setArtist(data)
+			} catch (error) {
+				console.error('Failed to fetch artist data:', error)
 			}
 		}
-		fetchTrack()
+
+		fetchData()
 	}, [])
 
-	const bgImage = track?.imageUrl
-		? `linear-gradient(120deg, rgba(0,0,0,0.0)), url(${track.imageUrl})`
-		: undefined
-
 	return (
-		<section
+		<div
 			className={styles.wrapper}
-			style={
-				bgImage
-					? {
-							backgroundImage: bgImage,
-							backgroundSize: 'cover',
-							backgroundPosition: 'center',
-					  }
-					: {}
-			}
+			style={{
+				backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${
+					artist?.imageUrl || ''
+				})`,
+			}}
 		>
 			<div className={styles.topbar}>
 				<button className={styles.backButton}>
@@ -84,6 +57,7 @@ const TrendingHitsMixWidget = () => {
 						/>
 					</svg>
 				</button>
+
 				<div className={styles.topActions}>
 					<button>Share</button>
 					<button>About</button>
@@ -106,18 +80,12 @@ const TrendingHitsMixWidget = () => {
 					</div>
 				</div>
 			</div>
-			{track && (
-				<div className={styles.content}>
-					{/* <img
-						src={track.imageUrl}
-						alt='Playlist Cover'
-						className={styles.cover}
-					/> */}
-					<p>{track.artist}fghjk</p>
-				</div>
+
+			{artist && (
+				<div className={styles.artistName}>{artist.name.toUpperCase()}</div>
 			)}
-		</section>
+		</div>
 	)
 }
 
-export default TrendingHitsMixWidget
+export default ArtistHeader

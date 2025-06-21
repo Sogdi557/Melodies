@@ -13,7 +13,6 @@ import MostPlayed from '../pages/mostPlayed/MostPlayed'
 import YourFavorites from '../pages/yourFavorites/YourFavorites'
 import { YourPlaylist } from '../pages/yourPlaylist/YourPlaylist'
 import AppPlaylist from '../pages/addPlaylist/AddPlaylist'
-import Setting from '../pages/setting/Setting'
 
 function App() {
 	return (
@@ -33,7 +32,6 @@ function App() {
 				<Route path='/yourFavorites' element={<YourFavorites />} />
 				<Route path='/yourPlaylist' element={<YourPlaylist />} />
 				<Route path='/addPlaylist' element={<AppPlaylist />} />
-				{/* <Route path='/settings' element={<Setting />} />' */}
 			</Routes>
 			{/* <FooterWidget /> */}
 		</div>

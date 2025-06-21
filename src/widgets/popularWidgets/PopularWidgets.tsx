@@ -16,7 +16,7 @@ interface Track {
 export default function TrendingSongsWidget() {
 	const [tracks, setTracks] = useState<Track[]>([])
 	const [likedIds, setLikedIds] = useState<string[]>([])
-	const [visibleCount, setVisibleCount] = useState(7)
+	const [visibleCount, setVisibleCount] = useState(5)
 
 	useEffect(() => {
 		const fetchTracks = async () => {
@@ -64,7 +64,7 @@ export default function TrendingSongsWidget() {
 				.map((track, idx) => (
 					<section key={track.id} className={styles.TrendingSongs}>
 						<div className={styles.songsNumber}>
-							<div className={styles.number}>#{idx + 1}</div>
+							<div className={styles.number}>{idx + 1}</div>
 						</div>
 						<div className={styles.row}>
 							<div className={styles.coverBlock}>

@@ -57,9 +57,6 @@ const MusicVideoSection = () => {
 
 			const allItems = response.data.albums.items
 
-			const filtered = allItems.filter((item: any) =>
-				item.name.toLowerCase().includes('video')
-			)
 			const tracks: Track[] = allItems.map((item: any) => ({
 				title: item.name,
 				artist: item.artists.map((a: any) => a.name).join(', '),

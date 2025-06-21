@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
 import HeaderWidget from '../../widgets/headerWidget/HeaderWidget'
 import FooterWidget from '../../widgets/footerWidget/FooterWidget'
@@ -121,11 +121,11 @@ const YourPlaylist = () => {
 								alt={playlist.title}
 								className={styles.playlistImage}
 							/>
-							<div className={styles.playlistOverlay}>
+							{/* <div className={styles.playlistOverlay}>
 								<button className={styles.playButton}>
 									<span>▶</span>
 								</button>
-							</div>
+							</div> */}
 						</div>
 						<div className={styles.playlistInfo}>
 							<h3>{playlist.title}</h3>

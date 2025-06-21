@@ -1,14 +1,15 @@
-import React from 'react'
-import TrendungHitsMixWidget from '../../widgets/trendingHitsMixWidget/TrendingHitsMixWidget'
 import FooterWidget from '../../widgets/footerWidget/FooterWidget'
 import TrendingSongsWidget from '../../widgets/trendingSongsWidget/TrendingSongsWidget'
 import WeeklyTopWidget from '../../widgets/weeklyTopSongsWidget/WeeklyTopSongsWidget'
 import MoodPlaylistWidget from '../../widgets/moodPlaylistWidget/MoodPlaylist'
 import PopularArtists from '../../widgets/popularArtistsWidget/PopularArtistsWidget'
-export default function Arists() {
+import TrendingHitsMixWidget from '../../widgets/trendingHitsMixWidget/TrendingHitsMixWidget'
+import styles from './style.module.scss'
+
+export default function Agists() {
 	return (
-		<div className='as'>
-			<TrendungHitsMixWidget />
+		<div className={styles.as}>
+			<TrendingHitsMixWidget />
 			<TrendingSongsWidget />
 			<WeeklyTopWidget />
 			<WeeklyTopWidget />

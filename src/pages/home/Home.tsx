@@ -8,6 +8,16 @@ import WeeklyTopSongsWidget from '../../widgets/weeklyTopSongsWidget/WeeklyTopSo
 import TopAlbums from '../../widgets/topAlbumsWidget/TopAlbums'
 import MoodPlaylist from '../../widgets/moodPlaylistWidget/MoodPlaylist'
 import NewReleaseSongs from '../../widgets/newReleaseSongsWidget/NewReleaseSongs'
+// import { useLocation } from 'react-router-dom'
+// import { useEffect } from 'react'
+
+// const ScrollToTop = () => {
+// 	const { pathname } = useLocation()
+
+// 	useEffect(() => {
+// 		window.scrollTo({ top: 0, behavior: 'smooth' }) // плавная прокрутка
+// 	}, [pathname])
+// }
 
 export default function Home() {
 	return (

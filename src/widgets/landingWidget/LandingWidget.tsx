@@ -1,11 +1,15 @@
-import styles from './style.module.scss'
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import AuthModal from '../authWidgetModal/AuthWidgetModal'
-import { useState } from 'react'
+import fetchSpotifyData from '../../pages/cart/Cart'
+import styles from './style.module.scss'
 
 const LandingWidget = () => {
 	const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
 	const [authType, setAuthType] = useState<'login' | 'signup'>('login')
+	const [isSearchOpen, setIsSearchOpen] = useState(false)
+	const [query, setQuery] = useState('')
+	const [searchResults, setSearchResults] = useState<any[]>([])
 
 	const openAuthModal = (type: 'login' | 'signup') => {
 		setAuthType(type)
@@ -15,6 +19,23 @@ const LandingWidget = () => {
 	const closeAuthModal = () => {
 		setIsAuthModalOpen(false)
 	}
+
+	const handleSearch = async () => {
+		if (!query.trim()) {
+			setIsSearchOpen(false)
+			return
+		}
+		const results = await fetchSpotifyData('artist', query)
+		setSearchResults(results)
+		setIsSearchOpen(true)
+	}
+
+	const closeSearch = () => {
+		setIsSearchOpen(false)
+		setQuery('')
+		setSearchResults([])
+	}
+
 	return (
 		<div className={styles.LandingWidget}>
 			<div className={styles.landing}>
@@ -37,7 +58,13 @@ const LandingWidget = () => {
 								/>
 							</svg>
 						</span>
-						<input type='text' placeholder='Search For Musics, Artists, ...' />
+						<input
+							type='text'
+							value={query}
+							onChange={e => setQuery(e.target.value)}
+							onKeyDown={e => e.key === 'Enter' && handleSearch()}
+							placeholder='Search For Musics, Artists, ...'
+						/>
 					</div>
 					<nav className={styles.navMenu}>
 						<NavLink
@@ -104,6 +131,35 @@ const LandingWidget = () => {
 					</div>
 				</main>
 			</div>
+
+			{/* Результаты поиска */}
+			{isSearchOpen && searchResults.length > 0 && (
+				<div
+					className={styles.searchOverlay}
+					onClick={closeSearch} // клик по фону закроет окно
+				>
+					<div
+						className={styles.searchResults}
+						onClick={e => e.stopPropagation()} // клик внутри не закроет окно
+					>
+						<button className={styles.closeButton} onClick={closeSearch}>
+							&times;
+						</button>
+						{searchResults.map(track => (
+							<div className={styles.trackCard} key={track.id}>
+								<div
+									className={styles.cover}
+									style={{ backgroundImage: `url(${track.image})` }}
+								/>
+								<div className={styles.trackInfo}>
+									<h3>{track.title}</h3>
+									<p>{track.subtitle}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }

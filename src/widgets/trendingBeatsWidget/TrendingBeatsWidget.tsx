@@ -16,8 +16,7 @@ interface Track {
 export default function TrendingSongsWidget() {
 	const [tracks, setTracks] = useState<Track[]>([])
 	const [likedIds, setLikedIds] = useState<string[]>([])
-	const [visibleCount, setVisibleCount] = useState(20)
-
+	const [visibleCount] = useState(20)
 	useEffect(() => {
 		const fetchTracks = async () => {
 			const fetched = await fetchSpotifyData('new')
@@ -54,11 +53,6 @@ export default function TrendingSongsWidget() {
 
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.header}>
-				<div>Release Date</div>
-				<div>Album</div>
-				<div>Time</div>
-			</div>
 			{tracks.slice(0, visibleCount).map((track, idx) => (
 				<section key={track.id} className={styles.TrendingSongs}>
 					<div className={styles.songsNumber}>

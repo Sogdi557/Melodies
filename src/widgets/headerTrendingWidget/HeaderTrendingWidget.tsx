@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './style.module.scss'
-import { Play, Heart } from 'lucide-react'
+import { Play } from 'lucide-react'
 import fetchSpotifyData from '../../pages/cart/Cart'
 
 interface Track {

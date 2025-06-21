@@ -14,7 +14,6 @@ interface Song {
 export default function WeeklyTopSongsWidget() {
 	const [songs, setSongs] = useState<Song[]>([])
 	const [visibleCount, setVisibleCount] = useState(10)
-	const shuffledSongs = [...songs].sort(() => Math.random() - 0.5)
 
 	useEffect(() => {
 		const loadSongs = async () => {
